@@ -47,7 +47,18 @@ namespace Project_1
 
         private void Button_Click_Out(object sender, RoutedEventArgs e)
         {
+            App._username = "";
+            this.NavigationService.Navigate(new Uri("AdminLogin.xaml", UriKind.Relative));
+        }
 
+        private void TDashboard(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("SupervisorDashboard.xaml", UriKind.Relative));
+        }
+
+        private void TRegistration(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("SupervisorRegistration.xaml", UriKind.Relative));
         }
     }
 }

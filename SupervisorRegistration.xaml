@@ -11,6 +11,19 @@
        Height="900" 
        Width="1600">
 
+    <Page.Resources>
+        <SolidColorBrush x:Key="SidebarBackgroundBrush" Color="#1565C0"/>
+        <SolidColorBrush x:Key="MainContentBackgroundBrush" Color="#E3F2FD"/>
+        <SolidColorBrush x:Key="AccentColorBrush" Color="Black"/>
+        <SolidColorBrush x:Key="TextBoxBackgroundBrush" Color="WhiteSmoke"/>
+        <Style x:Key="OutlineBorderStyle" TargetType="Border">
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Padding" Value="10"/>
+        </Style>
+    </Page.Resources>
+
     <Grid Background="WhiteSmoke">
 
         <!-- Menu Panel -->
@@ -31,8 +44,8 @@
                     </ItemsPanelTemplate>
                 </Menu.ItemsPanel>
 
-                <MenuItem Header="Dashboard" Template="{StaticResource Menu_Template}"></MenuItem>
-                <MenuItem Header="Registration" Template="{StaticResource Menu_Template}"></MenuItem>
+                <MenuItem Header="Dashboard" Template="{StaticResource Menu_Template}" Click="TDashboard"></MenuItem>
+                <MenuItem Header="Registration" Template="{StaticResource Menu_Template}" Click="TRegistration"></MenuItem>
 
             </Menu>
         </StackPanel>
@@ -51,11 +64,73 @@
 
             </StackPanel>
         </Border>
-        
-        <Grid Margin="250,100,42,238">
-            
+
+        <Grid Margin="250,100,42,157">
+            <Grid.Background>
+                <SolidColorBrush Color="WhiteSmoke"/>
+            </Grid.Background>
+
+            <StackPanel>
+                <Border Style="{StaticResource OutlineBorderStyle}" Height="597">
+                    <StackPanel>
+                        <TextBlock Text="Enter Team Information: " FontSize="20" Foreground="{StaticResource AccentColorBrush}" Margin="0,0,0,10" FontFamily="Fonts/#Roboto Light" FontWeight="Bold"/>
+
+                        <!-- First Row -->
+                        <StackPanel Orientation="Horizontal" Margin="0,40,0,10">
+
+                            <StackPanel Orientation="Horizontal" Width="400">
+                                <TextBlock Text="Team Name: " Foreground="{StaticResource AccentColorBrush}" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
+                                <TextBox x:Name="name" Margin="52,-2,0,0" Background="{StaticResource TextBoxBackgroundBrush}" Width="200" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
+                            </StackPanel>
+
+                        </StackPanel>
+
+                        <!-- Second row -->
+                        <StackPanel Orientation="Horizontal" Margin="0,15,0,5">
+
+                            <StackPanel Orientation="Horizontal" Width="400">
+                                <TextBlock Text="Member 1 Roll No: " Foreground="{StaticResource AccentColorBrush}" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
+                                <TextBox x:Name="roll1" Margin="12,2,0,0" Background="{StaticResource TextBoxBackgroundBrush}" Width="200" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
+                            </StackPanel>
+
+                        </StackPanel>
+
+                        <!-- Third row -->
+                        <StackPanel Orientation="Horizontal" Margin="0,15,0,5">
+
+                            <StackPanel Orientation="Horizontal" Width="400">
+                                <TextBlock Text="Member 2 Roll No: " Foreground="{StaticResource AccentColorBrush}" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
+                                <TextBox x:Name="roll2" Margin="12,2,0,0" Background="{StaticResource TextBoxBackgroundBrush}" Width="200" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
+                            </StackPanel>
+
+                        </StackPanel>
+
+                        <!-- Fourth row -->
+                        <StackPanel Orientation="Horizontal" Margin="0,15,0,5">
+
+                            <StackPanel Orientation="Horizontal" Width="400">
+                                <TextBlock Text="Member 3 Roll No: " Foreground="{StaticResource AccentColorBrush}" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
+                                <TextBox x:Name="roll3" Margin="12,2,0,0" Background="{StaticResource TextBoxBackgroundBrush}" Width="200" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
+                            </StackPanel>
+
+                        </StackPanel>
+
+                        <!-- Fifth row -->
+                        <StackPanel Orientation="Horizontal" Margin="0,15,0,5">
+
+                            <StackPanel Orientation="Horizontal" Width="1271">
+                                <TextBlock Text="Mission Statement: " Foreground="{StaticResource AccentColorBrush}" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
+                                <TextBox x:Name="mission" Margin="5,2,0,0" Background="{StaticResource TextBoxBackgroundBrush}" Width="1115" FontFamily="Fonts/#Roboto Light" FontSize="16" Height="190"/>
+                            </StackPanel>
+
+                        </StackPanel>
+
+                        <Button Content="Add Team" Click="Button_Click_Add"  HorizontalAlignment="Left" Margin="145,26,0,0" VerticalAlignment="Top" Width="122" Height="40" Style="{StaticResource MahApps.Styles.Button.Flat}"/>
+
+
+                    </StackPanel>
+                </Border>
+            </StackPanel>
         </Grid>
-
-
     </Grid>
 </Page>
