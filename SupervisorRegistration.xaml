@@ -80,7 +80,7 @@
 
                             <StackPanel Orientation="Horizontal" Width="400">
                                 <TextBlock Text="Team Name: " Foreground="{StaticResource AccentColorBrush}" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
-                                <TextBox x:Name="name" Margin="52,-2,0,0" Background="{StaticResource TextBoxBackgroundBrush}" Width="200" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
+                                <TextBox x:Name="name" Margin="52,0,0,0" Background="{StaticResource TextBoxBackgroundBrush}" Width="200" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
                             </StackPanel>
 
                         </StackPanel>

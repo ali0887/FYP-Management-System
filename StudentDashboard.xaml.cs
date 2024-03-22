@@ -61,6 +61,23 @@ namespace Project_1
 
             pname.Text = userData[11 + 5];
 
+            if (userData[13] == user)
+            {
+                mem1.Text = userData[14];
+                mem2.Text = userData[15];
+            }
+
+            else if (userData[14] == user)
+            {
+                mem1.Text = userData[13];
+                mem2.Text = userData[15];
+            }
+            else
+            {
+                mem1.Text = userData[13];
+                mem2.Text = userData[14];
+            }
+
         }
 
         private void Button_Click_Out(object sender, RoutedEventArgs e)

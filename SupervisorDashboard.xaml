@@ -82,17 +82,17 @@
 
                             <StackPanel Orientation="Horizontal" Width="400">
                                 <TextBlock Text="Name: " Foreground="{StaticResource AccentColorBrush}" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
-                                <TextBlock x:Name="name" Margin="5,2,0,0" Background="{StaticResource TextBoxBackgroundBrush}" Width="200" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
+                                <TextBlock x:Name="name" Margin="5,0,0,0" Background="{StaticResource TextBoxBackgroundBrush}" Width="200" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal" Width="400">
                                 <TextBlock Text="Date of Birth: " Foreground="{StaticResource AccentColorBrush}" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
-                                <TextBlock x:Name="age" Margin="5,2,0,0" Background="{StaticResource TextBoxBackgroundBrush}" Width="200" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
+                                <TextBlock x:Name="age" Margin="5,0,0,0" Background="{StaticResource TextBoxBackgroundBrush}" Width="200" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal" Width="400">
                                 <TextBlock Text="Gender: " Foreground="{StaticResource AccentColorBrush}" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
-                                <TextBlock x:Name="gen" Margin="5,2,0,0" Background="{StaticResource TextBoxBackgroundBrush}" Width="200" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
+                                <TextBlock x:Name="gen" Margin="5,0,0,0" Background="{StaticResource TextBoxBackgroundBrush}" Width="200" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
                             </StackPanel>
 
                         </StackPanel>
@@ -102,17 +102,17 @@
 
                             <StackPanel Orientation="Horizontal" Width="400">
                                 <TextBlock Text="Roll No: " Foreground="{StaticResource AccentColorBrush}" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
-                                <TextBlock x:Name="roll" Margin="5,2,0,0" Background="{StaticResource TextBoxBackgroundBrush}" Width="200" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
+                                <TextBlock x:Name="roll" Margin="5,0,0,0" Background="{StaticResource TextBoxBackgroundBrush}" Width="200" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal" Width="400">
                                 <TextBlock Text="Email: " Foreground="{StaticResource AccentColorBrush}" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
-                                <TextBlock x:Name="mail" Margin="5,2,0,0" Background="{StaticResource TextBoxBackgroundBrush}" Width="200" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
+                                <TextBlock x:Name="mail" Margin="5,0,0,0" Background="{StaticResource TextBoxBackgroundBrush}" Width="200" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal" Width="400">
                                 <TextBlock Text="Contact: " Foreground="{StaticResource AccentColorBrush}" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
-                                <TextBlock x:Name="num" Margin="5,2,0,0" Background="{StaticResource TextBoxBackgroundBrush}" Width="200" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
+                                <TextBlock x:Name="num" Margin="5,0,0,0" Background="{StaticResource TextBoxBackgroundBrush}" Width="200" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
                             </StackPanel>
 
                         </StackPanel>
@@ -128,7 +128,7 @@
 
                             <StackPanel Orientation="Horizontal" Width="400">
                                 <TextBlock Text="Department: " Foreground="{StaticResource AccentColorBrush}" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
-                                <TextBlock x:Name="dep" Margin="5,2,0,0" Background="{StaticResource TextBoxBackgroundBrush}" Width="200" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
+                                <TextBlock x:Name="dep" Margin="5,0,0,0" Background="{StaticResource TextBoxBackgroundBrush}" Width="200" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
                             </StackPanel>
 
                         </StackPanel>
