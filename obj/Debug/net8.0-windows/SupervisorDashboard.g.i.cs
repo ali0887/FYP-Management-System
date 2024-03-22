@@ -122,7 +122,7 @@ namespace Project_1 {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Project 1;component/supervisordashboard.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Project 1;V1.0.0.0;component/supervisordashboard.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\SupervisorDashboard.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
