@@ -72,11 +72,11 @@ namespace Project_1
                     // Check if rows were inserted successfully
                     if (rowsAffected > 0)
                     {
-                        MessageBox.Show("Team has been added successfully.", "Team Added", MessageBoxButton.OK, MessageBoxImage.Information);
+                       popup.IsOpen = true;
                     }
                     else
                     {
-                        MessageBox.Show("Operation has failed.", "Team Added", MessageBoxButton.OK, MessageBoxImage.Information);
+                        popup.IsOpen = false;
                     }
                 }
             }
@@ -96,6 +96,12 @@ namespace Project_1
         private void TRegistration(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("SupervisorRegistration.xaml", UriKind.Relative));
+        }
+
+        private void PopUpClose(object sender, RoutedEventArgs e)
+        {
+            popup.IsOpen = false;
+            this.NavigationService.Navigate(new Uri("SupervisorDashboard.xaml", UriKind.Relative));
         }
     }
 }

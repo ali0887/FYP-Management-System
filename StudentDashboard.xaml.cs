@@ -65,7 +65,8 @@ namespace Project_1
 
         private void Button_Click_Out(object sender, RoutedEventArgs e)
         {
-
+            App._username = "";
+            this.NavigationService.Navigate(new Uri("AdminLogin.xaml", UriKind.Relative));
         }
     }
 }

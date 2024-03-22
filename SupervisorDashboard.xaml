@@ -59,7 +59,7 @@
                 <TextBlock Text="Supervisor Dashboard" Background="Transparent" Margin="37, 30, 0, 0" FontSize="26" FontFamily="Fonts/#Roboto Light" Width="420"/>
 
                 <!-- Logout Button -->
-                <Button Content="Logout" Click="Button_Click_Out"  HorizontalAlignment="Left" Margin="1200,26,0,0" VerticalAlignment="Top" Width="122" Height="40" Style="{StaticResource MahApps.Styles.Button.Flat}"/>
+                <Button Content="Logout" Click="Button_Click_Out"  HorizontalAlignment="Left" Margin="730,26,0,0" VerticalAlignment="Top" Width="122" Height="40" Style="{StaticResource MahApps.Styles.Button.Flat}"/>
 
 
             </StackPanel>
@@ -135,12 +135,26 @@
                     </StackPanel>
                 </Border>
 
-                <Border Style="{StaticResource OutlineBorderStyle}" Height="131">
+                <Border Style="{StaticResource OutlineBorderStyle}" Height="350">
                     <StackPanel>
                         <TextBlock Text="Project Information" FontSize="20" Foreground="{StaticResource AccentColorBrush}" Margin="0,0,0,10" FontFamily="Fonts/#Roboto Light"/>
+
+                        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" CanUserAddRows="False" Style="{StaticResource MahApps.Styles.DataGrid.Azure}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Roll No 1" Binding="{Binding Roll1}" />
+                                <DataGridTextColumn Header="Roll No 2" Binding="{Binding Roll2}" />
+                                <DataGridTextColumn Header="Roll No 2" Binding="{Binding Roll3}" />
+                                <DataGridTextColumn Header="Supervisor ID" Binding="{Binding Supervisor}" />
+                                <DataGridTextColumn Header="Team Name" Binding="{Binding TeamName}" />
+                                <DataGridTextColumn Header="FYP Year" Binding="{Binding FYPYear}" />
+                                <DataGridTextColumn Header="Mission Statement" Binding="{Binding MissionStat}" Width="600"/>
+                                <DataGridTextColumn Header="Approved" Binding="{Binding Approved}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+
                     </StackPanel>
                 </Border>
-
+                
             </StackPanel>
         </Grid>
     </Grid>

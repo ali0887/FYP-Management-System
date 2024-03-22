@@ -14,10 +14,11 @@ create table Teams (
     approved bool
 );
 
-INSERT INTO TEAMS VALUES (0, '','','','','',0,'',true);
+INSERT INTO TEAMS VALUES (0, '','','','','',0,'',1);
 -- DROP TABLE Teams;
 
-SELECT * FROM TEAMS;
+-- SELECT * FROM TEAMS;
+-- SELECT * FROM Teams WHERE approved != 1;
 
 INSERT INTO Teams (team_id, roll_number_1, roll_number_2, roll_number_3, supervisor_id, team_name, fyp_year, mission_statement, approved)
 VALUES 
