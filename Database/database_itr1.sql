@@ -17,6 +17,8 @@ create table Teams (
 INSERT INTO TEAMS VALUES (0, '','','','','',0,'',true);
 -- DROP TABLE Teams;
 
+SELECT * FROM TEAMS;
+
 INSERT INTO Teams (team_id, roll_number_1, roll_number_2, roll_number_3, supervisor_id, team_name, fyp_year, mission_statement, approved)
 VALUES 
 (1,'i21-1234', 'i21-5678', 'i21-9012', 's-9342', 'TechTitans', 2025, 'Creating a sustainable energy solution for rural areas.', true),

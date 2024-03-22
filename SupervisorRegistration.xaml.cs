@@ -39,6 +39,9 @@ namespace Project_1
             }
             reader.Close();
             conn.Close();
+
+
+
         }
 
         private void Button_Click_Add(object sender, System.Windows.RoutedEventArgs e)
@@ -63,8 +66,18 @@ namespace Project_1
 
                     // Open connection and execute query
                     conn.Open();
-                    cmd.ExecuteNonQuery();
+                    int rowsAffected = cmd.ExecuteNonQuery();
                     conn.Close();
+
+                    // Check if rows were inserted successfully
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Team has been added successfully.", "Team Added", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Operation has failed.", "Team Added", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
                 }
             }
         }
