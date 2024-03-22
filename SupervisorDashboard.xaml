@@ -50,14 +50,21 @@
             </Menu>
         </StackPanel>
 
-        <!-- Border -->
+        <!-- Upper Menu -->
 
-        <Border BorderBrush="DeepSkyBlue" Background="DeepSkyBlue" BorderThickness="1" HorizontalAlignment="Left" Height="92" Margin="230,0,0,0" VerticalAlignment="Top" Width="1370"/>
+        <Border BorderBrush="DeepSkyBlue" Background="DeepSkyBlue" BorderThickness="1" HorizontalAlignment="Left" Height="92" Margin="230,0,0,0" VerticalAlignment="Top" Width="1370">
 
-        <!-- Logout Button -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
 
-        <Button Content="Logout" Click="Button_Click_Out"  HorizontalAlignment="Left" Margin="1436,26,0,0" Background="FloralWhite" VerticalAlignment="Top" Width="122" Height="40" Style="{StaticResource MahApps.Styles.Button.Flat}"/>
+                <TextBox Text="Dashboard" Background="Transparent" Margin="37, 30, 0, 0" FontSize="26" FontFamily="Fonts/#Roboto Light" Width="220"/>
 
+                <!-- Logout Button -->
+                <Button Content="Logout" Click="Button_Click_Out"  HorizontalAlignment="Left" Margin="1200,26,0,0" VerticalAlignment="Top" Width="122" Height="40" Style="{StaticResource MahApps.Styles.Button.Flat}"/>
+
+
+            </StackPanel>
+        </Border>
+        
         <!-- New Grid for User Information -->
 
         <Grid Margin="250,100,42,238">
