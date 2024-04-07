@@ -228,3 +228,8 @@ G:\Semester 6\SE\Project 1\Project 1\obj\Debug\net8.0-windows\StudentDashboard.g
 G:\Semester 6\SE\Project 1\Project 1\obj\Debug\net8.0-windows\SupervisorDashboard.g.cs
 G:\Semester 6\SE\Project 1\Project 1\obj\Debug\net8.0-windows\StudentDashboard.baml
 G:\Semester 6\SE\Project 1\Project 1\obj\Debug\net8.0-windows\SupervisorDashboard.baml
+G:\Semester 6\SE\Project 1\Project 1\obj\Debug\net8.0-windows\AdminRegistration.g.cs
+G:\Semester 6\SE\Project 1\Project 1\obj\Debug\net8.0-windows\SupervisorRegistration.g.cs
+G:\Semester 6\SE\Project 1\Project 1\obj\Debug\net8.0-windows\AdminRegistration.baml
+G:\Semester 6\SE\Project 1\Project 1\obj\Debug\net8.0-windows\SupervisorRegistration.baml
+G:\Semester 6\SE\Project 1\Project 1\obj\Debug\net8.0-windows\Project 1.sourcelink.json

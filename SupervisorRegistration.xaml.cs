@@ -39,6 +39,9 @@ namespace Project_1
             }
             reader.Close();
             conn.Close();
+
+
+
         }
 
         private void Button_Click_Add(object sender, System.Windows.RoutedEventArgs e)
@@ -63,8 +66,18 @@ namespace Project_1
 
                     // Open connection and execute query
                     conn.Open();
-                    cmd.ExecuteNonQuery();
+                    int rowsAffected = cmd.ExecuteNonQuery();
                     conn.Close();
+
+                    // Check if rows were inserted successfully
+                    if (rowsAffected > 0)
+                    {
+                       popup.IsOpen = true;
+                    }
+                    else
+                    {
+                        popup.IsOpen = false;
+                    }
                 }
             }
         }
@@ -83,6 +96,12 @@ namespace Project_1
         private void TRegistration(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("SupervisorRegistration.xaml", UriKind.Relative));
+        }
+
+        private void PopUpClose(object sender, RoutedEventArgs e)
+        {
+            popup.IsOpen = false;
+            this.NavigationService.Navigate(new Uri("SupervisorDashboard.xaml", UriKind.Relative));
         }
     }
 }

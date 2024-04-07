@@ -7,11 +7,13 @@ namespace Project_1
     /// <summary>
     /// Interaction logic for StudentDashboard.xaml
     /// </summary>
+    /// 
     public partial class SupervisorDashboard : Page
     {
 
         string user;
         List<string> userData = new List<string>();
+        List<Team> dataList = new List<Team>();
 
         public SupervisorDashboard()
         {
@@ -33,7 +35,6 @@ namespace Project_1
                     userData.Add(reader[i].ToString());
                 }
             }
-            conn.Close();
 
             name.Text = userData[1] + " " + userData[2] + " " + userData[3];
             roll.Text = userData[0];
@@ -42,6 +43,32 @@ namespace Project_1
             mail.Text = userData[7];
             num.Text = userData[4];
             dep.Text = userData[10];
+
+            reader.Close();
+
+            cmd = new MySqlCommand("SELECT * FROM Teams WHERE supervisor_id = @Sup", conn);
+            cmd.Parameters.AddWithValue("@Sup",user);
+
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                Team team = new Team();
+                team.TeamID = reader.GetInt32(0);
+                team.Roll1 = reader[1].ToString();
+                team.Roll2 = reader[2].ToString();
+                team.Roll3 = reader[3].ToString();
+                team.Supervisor = reader[4].ToString();
+                team.TeamName = reader[5].ToString();
+                team.FYPYear = reader.GetInt32(6);
+                team.MissionStat = reader[7].ToString();
+                team.Approved = reader.GetInt32(8);
+
+                dataList.Add(team);
+            }
+            reader.Close();
+            conn.Close();
+
+            dataGrid.ItemsSource = dataList;
 
         }
 
@@ -61,4 +88,6 @@ namespace Project_1
             this.NavigationService.Navigate(new Uri("SupervisorRegistration.xaml", UriKind.Relative));
         }
     }
+
+    
 }
