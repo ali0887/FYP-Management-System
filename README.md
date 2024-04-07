@@ -24,3 +24,12 @@ This project is a management system designed to help students and faculty member
 1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/fyp-management-system.git
+2. Go to Tools -> NuGet Package Manager -> Packet Manager Console:
+3. Type in the following commands: 
+   ```bash
+   Install-Package MahApps.Metro
+   Install-Package MahApps.Metro.IconPacks
+   Install-Package ModernWpfUI -Version 0.9.6
+   Install-Package ModernWpfUI.MahApps -Version 0.9.5
+   Install-Package MySql.Data -Version 8.3.0
+   Install-Package Newtonsoft.Json -Version 13.0.3
