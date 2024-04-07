@@ -4147,11 +4147,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Semester 6\\SE\\Project 1\\Project 1\\Project 1.csproj",
+      "projectUniqueName": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\Project 1.csproj",
       "projectName": "Project 1",
-      "projectPath": "G:\\Semester 6\\SE\\Project 1\\Project 1\\Project 1.csproj",
+      "projectPath": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\Project 1.csproj",
       "packagesPath": "C:\\Users\\alibh\\.nuget\\packages\\",
-      "outputPath": "G:\\Semester 6\\SE\\Project 1\\Project 1\\obj\\",
+      "outputPath": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\alibh\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4229,7 +4229,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
