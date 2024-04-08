@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:AdminDashboard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\Project 1.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Project 1.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\AdminDashboard.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:AdminDashboard.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\Project 1.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Project 1.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\App.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -44,34 +44,35 @@
               "RelativeDocumentMoniker": "AdminDashboard.xaml",
               "ToolTip": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\AdminDashboard.xaml",
               "RelativeToolTip": "AdminDashboard.xaml",
-              "ViewState": "AQIAADcAAAAAAAAAAAAAAEMAAAARAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-04-07T10:27:46.091Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Project 1.csproj",
               "DocumentMoniker": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\Project 1.csproj",
               "RelativeDocumentMoniker": "Project 1.csproj",
               "ToolTip": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\Project 1.csproj",
               "RelativeToolTip": "Project 1.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAqAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAABLAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2024-04-07T10:28:38.153Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "AdminDashboard.xaml",
               "DocumentMoniker": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\AdminDashboard.xaml",
               "RelativeDocumentMoniker": "AdminDashboard.xaml",
               "ToolTip": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\AdminDashboard.xaml",
               "RelativeToolTip": "AdminDashboard.xaml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAUAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-07T10:22:42.347Z"
+              "WhenOpened": "2024-04-07T10:22:42.347Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -96,10 +97,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-04-07T02:53:51.049Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             }
           ]
         }

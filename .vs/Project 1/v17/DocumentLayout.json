@@ -1,0 +1,40 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{82EE82D3-10D3-40CD-8B27-620ABFA4C48D}|Project 1.csproj|c:\\users\\alibh\\source\\repos\\ali0887\\fyp-management-system\\admindashboard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{82EE82D3-10D3-40CD-8B27-620ABFA4C48D}|Project 1.csproj|solutionrelative:admindashboard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AdminDashboard.xaml",
+              "DocumentMoniker": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\AdminDashboard.xaml",
+              "RelativeDocumentMoniker": "AdminDashboard.xaml",
+              "ToolTip": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\AdminDashboard.xaml",
+              "RelativeToolTip": "AdminDashboard.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-07T11:17:16.103Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

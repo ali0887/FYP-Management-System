@@ -233,3 +233,27 @@ G:\Semester 6\SE\Project 1\Project 1\obj\Debug\net8.0-windows\SupervisorRegistra
 G:\Semester 6\SE\Project 1\Project 1\obj\Debug\net8.0-windows\AdminRegistration.baml
 G:\Semester 6\SE\Project 1\Project 1\obj\Debug\net8.0-windows\SupervisorRegistration.baml
 G:\Semester 6\SE\Project 1\Project 1\obj\Debug\net8.0-windows\Project 1.sourcelink.json
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Debug\net8.0-windows\Project 1.csproj.AssemblyReference.cache
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Debug\net8.0-windows\Templates.baml
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Debug\net8.0-windows\AdminDashboard.g.cs
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Debug\net8.0-windows\AdminLogin.g.cs
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Debug\net8.0-windows\AdminRegistration.g.cs
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Debug\net8.0-windows\StudentDashboard.g.cs
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Debug\net8.0-windows\SupervisorDashboard.g.cs
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Debug\net8.0-windows\SupervisorRegistration.g.cs
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Debug\net8.0-windows\Project 1_Content.g.cs
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Debug\net8.0-windows\Project 1_MarkupCompile.cache
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Debug\net8.0-windows\Project 1_MarkupCompile.lref
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Debug\net8.0-windows\App.baml
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Debug\net8.0-windows\AdminDashboard.baml
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Debug\net8.0-windows\AdminLogin.baml
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Debug\net8.0-windows\AdminRegistration.baml
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Debug\net8.0-windows\MainWindow.baml
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Debug\net8.0-windows\StudentDashboard.baml
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Debug\net8.0-windows\SupervisorDashboard.baml
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Debug\net8.0-windows\SupervisorRegistration.baml
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Debug\net8.0-windows\Project 1.g.resources
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Debug\net8.0-windows\refint\Project 1.dll
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Debug\net8.0-windows\Project 1.pdb
