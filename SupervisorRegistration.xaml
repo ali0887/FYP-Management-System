@@ -46,6 +46,7 @@
 
                 <MenuItem Header="Dashboard" Template="{StaticResource Menu_Template}" Click="TDashboard"></MenuItem>
                 <MenuItem Header="Registration" Template="{StaticResource Menu_Template}" Click="TRegistration"></MenuItem>
+                <MenuItem Header="Resource Lib" Template="{StaticResource Menu_Template}" Click="TLibrary"></MenuItem>
 
             </Menu>
         </StackPanel>

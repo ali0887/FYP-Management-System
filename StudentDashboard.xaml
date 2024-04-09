@@ -44,7 +44,8 @@
                     </ItemsPanelTemplate>
                 </Menu.ItemsPanel>
 
-                <MenuItem Header="Dashboard" Template="{StaticResource Menu_Template}"></MenuItem>
+                <MenuItem Header="Dashboard" Template="{StaticResource Menu_Template}" Click="SDashboard"></MenuItem>
+                <MenuItem Header="Resource Lib" Template="{StaticResource Menu_Template}" Click="SLibrary"></MenuItem>
 
             </Menu>
         </StackPanel>

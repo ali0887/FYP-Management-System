@@ -58,5 +58,10 @@ namespace Project_1
         {
             this.NavigationService.Navigate(new Uri("AdminRegistration.xaml", UriKind.Relative));
         }
+
+        private void ALibrary(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("AdminLibrary.xaml", UriKind.Relative));
+        }
     } 
 }

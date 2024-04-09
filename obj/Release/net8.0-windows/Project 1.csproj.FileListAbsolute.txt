@@ -468,3 +468,15 @@ C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-win
 C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-windows\Project 1.pdb
 C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-windows\Project 1.genruntimeconfig.cache
 C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-windows\ref\Project 1.dll
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-windows\AdminLibrary.g.cs
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-windows\StudentAnnouncements.g.cs
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-windows\StudentLibrary.g.cs
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-windows\SupervisorLibrary.g.cs
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-windows\SupervisorTeams.g.cs
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-windows\AdminLibrary.baml
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-windows\StudentAnnouncements.baml
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-windows\StudentLibrary.baml
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-windows\SupervisorLibrary.baml
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-windows\SupervisorTeams.baml
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\bin\Release\net8.0-windows\ExcelDataReader.dll
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\bin\Release\net8.0-windows\ExcelDataReader.DataSet.dll

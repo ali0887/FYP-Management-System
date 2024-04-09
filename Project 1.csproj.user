@@ -5,24 +5,42 @@
     <Compile Update="AdminDashboard.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="AdminLibrary.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="AdminLogin.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="AdminRegistration.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="StudentAnnouncements.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="StudentDashboard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="StudentLibrary.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="SupervisorDashboard.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="SupervisorLibrary.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="SupervisorRegistration.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SupervisorTeams.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="AdminDashboard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AdminLibrary.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="AdminLogin.xaml">
@@ -34,13 +52,25 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="StudentAnnouncements.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="StudentDashboard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="StudentLibrary.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="SupervisorDashboard.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="SupervisorLibrary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="SupervisorRegistration.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SupervisorTeams.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Templates.xaml">

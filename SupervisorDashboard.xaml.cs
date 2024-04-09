@@ -87,6 +87,11 @@ namespace Project_1
         {
             this.NavigationService.Navigate(new Uri("SupervisorRegistration.xaml", UriKind.Relative));
         }
+
+        private void TLibrary(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("SupervisorLibrary.xaml", UriKind.Relative));
+        }
     }
 
     

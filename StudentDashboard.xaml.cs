@@ -85,5 +85,15 @@ namespace Project_1
             App._username = "";
             this.NavigationService.Navigate(new Uri("AdminLogin.xaml", UriKind.Relative));
         }
+
+        private void SDashboard(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("StudentDashboard.xaml", UriKind.Relative));
+        }
+
+        private void SLibrary(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("StudentLibrary.xaml", UriKind.Relative));
+        }
     }
 }

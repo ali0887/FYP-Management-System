@@ -1,10 +1,9 @@
 ﻿
-FC:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\App.xaml;;
-FC:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\AdminDashboard.xaml;;
-FC:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\AdminLogin.xaml;;
-FC:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\AdminRegistration.xaml;;
-FC:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\MainWindow.xaml;;
+
+FC:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\AdminLibrary.xaml;;
 FC:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\StudentDashboard.xaml;;
+FC:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\StudentLibrary.xaml;;
 FC:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\SupervisorDashboard.xaml;;
+FC:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\SupervisorLibrary.xaml;;
 FC:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\SupervisorRegistration.xaml;;
 
