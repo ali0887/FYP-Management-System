@@ -189,5 +189,10 @@ namespace Project_1
             this.NavigationService.Navigate(new Uri("SupervisorLibrary.xaml", UriKind.Relative));
         }
 
+        private void TTeams(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("SupervisorTeams.xaml", UriKind.Relative));
+        }
+
     }
 }

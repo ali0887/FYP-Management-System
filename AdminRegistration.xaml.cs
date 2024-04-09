@@ -62,6 +62,7 @@ namespace Project_1
             this.NavigationService.Navigate(new Uri("AdminDashboard.xaml", UriKind.Relative));
             popup.IsOpen = false;
         }
+
         private void Button_Click_Approve(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;

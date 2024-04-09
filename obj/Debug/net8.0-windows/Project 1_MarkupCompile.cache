@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Debug\net8.0-windows\
+C:\Users\alibh\source\repos\ali0887\FYP-Management-System\obj\Debug\net8.0-windows\
 Project_1
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\App.xaml
-13933841243
+C:\Users\alibh\source\repos\ali0887\FYP-Management-System\App.xaml
+14-1594588824
 4-11988527
-15-386022456
+16-185244512
 248438712009
-AdminDashboard.xaml;AdminLibrary.xaml;AdminLogin.xaml;AdminRegistration.xaml;MainWindow.xaml;StudentAnnouncements.xaml;StudentDashboard.xaml;StudentLibrary.xaml;SupervisorDashboard.xaml;SupervisorLibrary.xaml;SupervisorRegistration.xaml;SupervisorTeams.xaml;Templates.xaml;
+AdminDashboard.xaml;AdminLibrary.xaml;AdminLogin.xaml;AdminRegistration.xaml;MainWindow.xaml;StudentAnnouncements.xaml;StudentDashboard.xaml;StudentLibrary.xaml;StudentsUpload.xaml;SupervisorDashboard.xaml;SupervisorLibrary.xaml;SupervisorRegistration.xaml;SupervisorTeams.xaml;Templates.xaml;
 
 True
 

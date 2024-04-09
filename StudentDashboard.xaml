@@ -46,6 +46,7 @@
 
                 <MenuItem Header="Dashboard" Template="{StaticResource Menu_Template}" Click="SDashboard"></MenuItem>
                 <MenuItem Header="Resource Lib" Template="{StaticResource Menu_Template}" Click="SLibrary"></MenuItem>
+                <MenuItem Header="Team" Template="{StaticResource Menu_Template}" Click="STeam"></MenuItem>
 
             </Menu>
         </StackPanel>

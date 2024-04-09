@@ -95,5 +95,10 @@ namespace Project_1
         {
             this.NavigationService.Navigate(new Uri("StudentLibrary.xaml", UriKind.Relative));
         }
+
+        private void STeam(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("StudentAnnouncements.xaml", UriKind.Relative));
+        }
     }
 }

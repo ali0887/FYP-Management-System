@@ -480,3 +480,5 @@ C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-win
 C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-windows\SupervisorTeams.baml
 C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\bin\Release\net8.0-windows\ExcelDataReader.dll
 C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\bin\Release\net8.0-windows\ExcelDataReader.DataSet.dll
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-windows\StudentsUpload.g.cs
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-windows\StudentsUpload.baml
