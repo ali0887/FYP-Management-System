@@ -14,11 +14,37 @@ create table Teams (
     approved bool
 );
 
+create table announcements (
+	team_id INT,
+    announcement_id INT PRIMARY KEY,
+    announcement_by_id VARCHAR(10),
+    announcement_to_id VARCHAR(10),
+    announcement_text VARCHAR(200),
+	viewewd bool
+);
+
+select * from announcements;
+
+INSERT INTO announcements VALUES (0, 0,'','','',0);
+
+create table deadlines (
+	team_id INT,
+    deadline_id INT PRIMARY KEY,
+    deadline_date DATE,
+    deadline_met bool
+);
+
+INSERT INTO deadlines VALUES (0, 0,NULL,0);
+
+select * from deadlines;
+
 INSERT INTO TEAMS VALUES (0, '','','','','',0,'',1);
 -- DROP TABLE Teams;
 
 -- SELECT * FROM TEAMS;
 -- SELECT * FROM Teams WHERE approved != 1;
+
+SELECT * FROM Teams WHERE team_id = 1;
 
 INSERT INTO Teams (team_id, roll_number_1, roll_number_2, roll_number_3, supervisor_id, team_name, fyp_year, mission_statement, approved)
 VALUES 
@@ -33,6 +59,8 @@ VALUES
 (9,'i21-8901', 'i21-6543', 'i21-4321', 's-8023', 'InventiveMinds', 2025, 'Developing a virtual reality-based educational platform.', true),
 (10,'i21-1234', 'i21-5678', 'i21-9012', 's-2159', 'DataDreamers', 2025, 'Designing a community-driven urban gardening system.', false);
 
+SELECT Fname, MName, Lname from USER WHERE Username = 'i21-1234';
+ 
 create table repository(
 	repos_id int primary key,
 	roll_number_1  varchar(10),
@@ -109,3 +137,18 @@ INSERT INTO Login (Username, Password) VALUES
 ('s-7685', '1234'),
 ('a-1234', '1234'),
 ('a-5678', '1234');
+
+CREATE TABLE FYPRepository (
+	Title VARCHAR(200),
+    Description VARCHAR(2000),
+    Link VARCHAR(200),
+    Tools VARCHAR(300)
+);
+
+DROP TABLE FYPRepository;
+
+select * from FYPRepository;
+
+select * from login
+SELECT DATABASE();
+SELECT USER();
