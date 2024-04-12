@@ -68,7 +68,7 @@
                 <SolidColorBrush Color="WhiteSmoke"/>
             </Grid.Background>
 
-            <StackPanel Background="WhiteSmoke" Grid.ColumnSpan="2" Margin="10,10,0,-10" Grid.RowSpan="6">
+            <StackPanel Background="WhiteSmoke" Margin="10,10,0,-202">
                 <Border Style="{StaticResource OutlineBorderStyle}" Height="174">
                     <StackPanel>
                         <TextBlock Text="Personal Information" FontSize="20" Foreground="{StaticResource AccentColorBrush}" Margin="0,0,0,10" FontFamily="Fonts/#Roboto Light"/>
@@ -138,13 +138,13 @@
 
                 <Border Style="{StaticResource OutlineBorderStyle}" Height="131">
                     <StackPanel>
-                        <TextBlock Text="Project Information" FontSize="20" Foreground="{StaticResource AccentColorBrush}" Margin="0,0,0,10" FontFamily="Fonts/#Roboto Light"/>
+                        <TextBlock Text="Team Information" FontSize="20" Foreground="{StaticResource AccentColorBrush}" Margin="0,0,0,10" FontFamily="Fonts/#Roboto Light"/>
 
                         <!-- First Row -->
                         <StackPanel Orientation="Horizontal" Margin="0,15,0,10">
 
                             <StackPanel Orientation="Horizontal" Width="400">
-                                <TextBlock Text="Project Name: " Foreground="{StaticResource AccentColorBrush}" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
+                                <TextBlock Text="Team Name: " Foreground="{StaticResource AccentColorBrush}" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
                                 <TextBlock x:Name="pname" Margin="5,0,0,0" Background="{StaticResource TextBoxBackgroundBrush}" Width="200" FontFamily="Fonts/#Roboto Light" FontSize="16"/>
                             </StackPanel>
 
@@ -161,7 +161,14 @@
                         </StackPanel>
                     </StackPanel>
                 </Border>
-                
+
+                <Border Style="{StaticResource OutlineBorderStyle}" Height="131" x:Name="mainBorderDeadlines">
+                    <StackPanel x:Name="mainPanelDeadlines" Orientation="Vertical">
+                        <TextBlock Text="Deadlines" FontSize="20" Foreground="{StaticResource AccentColorBrush}" Margin="0,0,0,10" FontFamily="Fonts/#Roboto Light"/>
+
+                    </StackPanel>
+                </Border>
+
             </StackPanel>
         </Grid>
     </Grid>

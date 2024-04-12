@@ -3,6 +3,10 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Xml.Linq;
+using Syncfusion.Windows.Shared;
+using System.ComponentModel;
+using System.Windows.Media;
+using System.Configuration;
 
 namespace Project_1
 {
@@ -14,12 +18,12 @@ namespace Project_1
     {
 
         string user;
-        string teamName;
         List<string> memberName = new List<string>();
         List<Announcements> announcement = new List<Announcements>();
+        List<Deadlines> deadlines = new List<Deadlines>();
         List<String> announcementsText = new List<String>();
-        int teamId;
-        Team t;
+        DatesCollection original = new DatesCollection();
+        Team t = new Team();
 
         public StudentAnnouncements()
         {
@@ -29,25 +33,11 @@ namespace Project_1
 
             string connectionString = "Server=127.0.0.1;Port=3306;Database=SE;Uid=root;Pwd=12345678;";
             MySqlConnection conn = new MySqlConnection(connectionString);
-            MySqlCommand cmd = new MySqlCommand("SELECT team_id, team_name FROM Teams WHERE roll_number_1 = @Username OR roll_number_2 = @Username OR roll_number_3 = @Username", conn);
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM Teams WHERE roll_number_1 = @Username OR roll_number_2 = @Username OR roll_number_3 = @Username", conn);
             cmd.Parameters.AddWithValue("@Username", user);
             conn.Open();
 
             MySqlDataReader reader = cmd.ExecuteReader();
-            if (reader.Read())
-            {
-                teamId = reader.GetInt32(0);
-                teamName = reader.GetString(1);
-            }
-
-            headerName.Text = teamName;
-            reader.Close();
-
-            cmd = new MySqlCommand("SELECT * FROM Teams WHERE team_id = @Username", conn);
-            cmd.Parameters.AddWithValue("@Username", teamId);
-
-            reader = cmd.ExecuteReader();
-            t = new Team();
             if (reader.Read())
             {
                 t.TeamID = reader.GetInt32(0);
@@ -57,15 +47,26 @@ namespace Project_1
                 t.Supervisor = reader.GetString(4);
                 t.TeamName = reader.GetString(5);
                 t.FYPYear = reader.GetInt32(6);
+                t.MissionStat = reader.GetString(7);
+                t.Approved = reader.GetInt32(8);
             }
-
             reader.Close();
+
+            calender.TodayCellSelectedBorderBrush = Brushes.Red;
+            calender.TodayCellSelectedBackground = Brushes.Red;
+
+            calender.TodayRowIsVisible = true;
+
+            calender.SelectedDayCellBackground = Brushes.Yellow;
+            calender.SelectedDayCellBorderBrush = Brushes.Blue;
+            calender.SelectionForeground = Brushes.Red;
+            calender.SelectedDayCellHoverBackground = Brushes.Green;
+            calender.SelectionBorderBrush = Brushes.Red;
 
             memberName.Clear();
 
             cmd = new MySqlCommand("SELECT FName, MName, LName FROM User WHERE Username = @Username", conn);
             cmd.Parameters.AddWithValue("@Username", t.Roll1);
-
 
             reader = cmd.ExecuteReader();
             if (reader.Read())
@@ -75,7 +76,6 @@ namespace Project_1
             }
 
             reader.Close();
-
 
             cmd = new MySqlCommand("SELECT FName, MName, LName FROM User WHERE Username = @Username", conn);
             cmd.Parameters.AddWithValue("@Username", t.Roll2);
@@ -109,9 +109,36 @@ namespace Project_1
             S3Name.Text = memberName[2];
             S3Roll.Text = t.Roll3;
 
+            mission.Text = t.MissionStat;   
 
-            cmd = new MySqlCommand("SELECT * FROM announcements WHERE team_id = @Username", conn);
-            cmd.Parameters.AddWithValue("@Username", teamId);
+            cmd = new MySqlCommand("SELECT FName, MName, LName FROM User WHERE Username = @Username", conn);
+            cmd.Parameters.AddWithValue("@Username", t.Supervisor);
+
+            reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                memberName.Add(reader.GetString(0) + " " + reader.GetString(1) + " " + reader.GetString(2));
+            }
+
+            reader.Close();
+
+            SupName.Text = memberName[3];
+            SupRoll.Text = t.Supervisor;
+
+
+            FYPYear.Text = t.FYPYear.ToString();
+
+            if (t.Approved == 1)
+            {
+                FYPApproved.Text = "Yes";
+            }
+            else
+            {
+                FYPApproved.Text = "No";
+            }
+
+            cmd = new MySqlCommand("SELECT * FROM Announcements WHERE team_id = @Username", conn);
+            cmd.Parameters.AddWithValue("@Username", t.TeamID);
 
             reader = cmd.ExecuteReader();
             while (reader.Read())
@@ -119,7 +146,7 @@ namespace Project_1
                 Announcements announce = new Announcements();
                 announce.viewed = reader.GetBoolean(5);
                 announce.text = reader.GetString(4);
-                announce.teamID = teamId;
+                announce.teamID = t.TeamID;
                 announce.announcmentID = reader.GetInt32(1);
                 announce.announcementBy = reader.GetString(2);
                 announce.announcementTo = reader.GetString(3);
@@ -138,6 +165,21 @@ namespace Project_1
 
                 else if (user.Equals(announce.announcementTo))
                 {
+                    string name;
+
+                    if (t.Roll1.Equals(announce.announcementBy))
+                    {
+                        name = memberName[0];
+                    }
+                    else if (t.Roll2.Equals(announce.announcementBy))
+                    {
+                        name = memberName[1];
+                    }
+                    else
+                    {
+                        name = memberName[2];
+                    }
+
                     announcementsText.Add("An announcment was added by " + announce.announcementBy + ": " + announce.text);
                 }
             }
@@ -152,20 +194,58 @@ namespace Project_1
             }
 
             // Set the ItemsSource of the DataGrid to the collection of AnnouncementItem objects
+            announcementItems.Reverse();
             dataGrid.ItemsSource = announcementItems;
 
+            cmd = new MySqlCommand("SELECT * FROM deadlines WHERE team_id = @Username", conn);
+            cmd.Parameters.AddWithValue("@Username", t.TeamID);
+
+            reader = cmd.ExecuteReader();
+            DatesCollection dc = new DatesCollection();
+
+            while (reader.Read())
+            {
+                Deadlines deadline = new Deadlines();
+
+                deadline.teamID = reader.GetInt32(0);
+                deadline.deadlineID = reader.GetInt32(1);
+
+                DateTime dateO = reader.GetDateTime(3);
+                Date date = new Date(dateO.Year, dateO.Month, dateO.Day);
+                deadline.deadlineDate = date;
+
+                deadline.deadlineMet = reader.GetBoolean(4);
+                deadline.deadlineText = reader.GetString(2);
+
+                calender.SetToolTip(deadline.deadlineDate, new ToolTip() { Content = deadline.deadlineText });
+
+                SpecialDate specialDate = new SpecialDate();
+                specialDate.Equals(date);
+                calender.SpecialDates.Add(specialDate);
+
+                dc.Add(dateO);
+
+
+                deadlines.Add(deadline);
+            }
+
+            calender.SelectedDates = dc;
+
+            foreach (DateTime datee in dc)
+            {
+                original.Add(datee);
+            }
+
             conn.Close();
+
         }
 
-        private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        private void calender_DateChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            // Get the selected date
-            DateTime selectedDate = (sender as Calendar).SelectedDate ?? DateTime.Today;
-
-            // Display a popup window to enter the announcement
-            Deadlinepopup.IsOpen = true;
-
-            // Here you can access the entered announcement from the popup window and save it to the database
+            foreach (var date in original)
+            {
+                calender.SelectedDates.Add(date);
+            }
         }
 
         private void AddAnnouncementButton(object sender, RoutedEventArgs e)
@@ -173,10 +253,6 @@ namespace Project_1
             Announcepopup.IsOpen = true;
         }
 
-        private void DeadlinePopUpClose(object sender, RoutedEventArgs e)
-        {
-            Deadlinepopup.IsOpen = false;
-        }
 
         private void AnnouncementPopUpClose(object sender, RoutedEventArgs e)
         {
@@ -198,10 +274,10 @@ namespace Project_1
             cmd = new MySqlCommand(query, conn);
 
             // Add parameters
-            cmd.Parameters.AddWithValue("@team_id", teamId);
+            cmd.Parameters.AddWithValue("@team_id", t.TeamID);
             cmd.Parameters.AddWithValue("@roll_number_1", id);
             cmd.Parameters.AddWithValue("@roll_number_2", user);
-            cmd.Parameters.AddWithValue("@roll_number_3", user);
+            cmd.Parameters.AddWithValue("@roll_number_3", t.Supervisor);
             cmd.Parameters.AddWithValue("@supervisor_id", announceData);
 
             cmd.ExecuteNonQuery();
@@ -209,7 +285,7 @@ namespace Project_1
             cmd = new MySqlCommand(query, conn);
 
             // Add parameters
-            cmd.Parameters.AddWithValue("@team_id", teamId);
+            cmd.Parameters.AddWithValue("@team_id", t.TeamID);
             cmd.Parameters.AddWithValue("@roll_number_1", id + 1);
             cmd.Parameters.AddWithValue("@roll_number_2", user);
             cmd.Parameters.AddWithValue("@roll_number_3", t.Roll1);
@@ -220,7 +296,7 @@ namespace Project_1
             cmd = new MySqlCommand(query, conn);
 
             // Add parameters
-            cmd.Parameters.AddWithValue("@team_id", teamId);
+            cmd.Parameters.AddWithValue("@team_id", t.TeamID);
             cmd.Parameters.AddWithValue("@roll_number_1", id + 2);
             cmd.Parameters.AddWithValue("@roll_number_2", user);
             cmd.Parameters.AddWithValue("@roll_number_3", t.Roll2);
@@ -231,7 +307,7 @@ namespace Project_1
             cmd = new MySqlCommand(query, conn);
 
             // Add parameters
-            cmd.Parameters.AddWithValue("@team_id", teamId);
+            cmd.Parameters.AddWithValue("@team_id", t.TeamID);
             cmd.Parameters.AddWithValue("@roll_number_1", id + 3);
             cmd.Parameters.AddWithValue("@roll_number_2", user);
             cmd.Parameters.AddWithValue("@roll_number_3", t.Roll3);
@@ -243,6 +319,7 @@ namespace Project_1
 
             Announcepopup.IsOpen = false;
 
+            this.NavigationService.Refresh();
         }
 
 
@@ -257,6 +334,10 @@ namespace Project_1
             Announcepopup.IsOpen = false;
         }
 
+        private void Button_DownloadFile_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
 
         private void SDashboard(object sender, RoutedEventArgs e)
         {
@@ -283,6 +364,4 @@ namespace Project_1
             this.NavigationService.Navigate(new Uri("StudentEvaluations.xaml", UriKind.Relative));
         }
     }
-
-
 }

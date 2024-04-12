@@ -25,7 +25,7 @@ namespace Project_1
         List<String> announcementsText = new List<String>();
         DatesCollection original = new DatesCollection();
 
-
+        DateTime deadlineDate;
         int teamId;
         Team t;
 
@@ -103,6 +103,8 @@ namespace Project_1
                 t.Supervisor = reader.GetString(4);
                 t.TeamName = reader.GetString(5);
                 t.FYPYear = reader.GetInt32(6);
+                t.MissionStat = reader.GetString(7);
+                t.Approved = reader.GetInt32(8);
             }
 
             reader.Close();
@@ -154,6 +156,31 @@ namespace Project_1
 
             S3Name.Text = memberName[2];
             S3Roll.Text = t.Roll3;
+
+            cmd = new MySqlCommand("SELECT FName, MName, LName FROM User WHERE Username = @Username", conn);
+            cmd.Parameters.AddWithValue("@Username", user);
+
+            reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                memberName.Add(reader.GetString(0) + " " + reader.GetString(1) + " " + reader.GetString(2));
+            }
+
+            reader.Close();
+
+            SupName.Text = memberName[3];
+            SupRoll.Text = user;
+
+            FYPYear.Text = t.FYPYear.ToString();
+
+            if (t.Approved == 1)
+            {
+                FYPApproved.Text = "Yes";
+            }
+            else
+            {
+                FYPApproved.Text = "No";
+            }
 
 
             cmd = new MySqlCommand("SELECT * FROM Announcements WHERE team_id = @Username", conn);
@@ -213,6 +240,7 @@ namespace Project_1
             }
 
             // Set the ItemsSource of the DataGrid to the collection of AnnouncementItem objects
+            announcementItems.Reverse();
             dataGrid.ItemsSource = announcementItems;
 
             cmd = new MySqlCommand("SELECT * FROM deadlines WHERE team_id = @Username", conn);
@@ -257,10 +285,62 @@ namespace Project_1
             conn.Close();
         }
 
+        private void UploadPopUpClose(object sender, RoutedEventArgs e)
+        {
+            Uploadpopup.IsOpen = false;
+            this.NavigationService.Refresh();
+        }
+
+        private void AddUploadButton(object sender, RoutedEventArgs e)
+        {
+            Uploadpopup.IsOpen = true;
+        }
+
+        private void SelectFile_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+
+            dlg.Multiselect = false;
+
+            Nullable<bool> result = dlg.ShowDialog();
+
+            if (result == true)
+            {
+                string filename = dlg.FileName;
+                SelectedFileText.Text = "Selected File: " + filename;
+            }
+        }
+
+
         private void DeadlinePopUpClose(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("SupervisorTeams.xaml", UriKind.Relative));
+            string connectionString = "Server=127.0.0.1;Port=3306;Database=SE;Uid=root;Pwd=12345678;";
+            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlCommand cmd = new MySqlCommand("SELECT MAX(deadline_id) FROM deadlines", conn);
+            conn.Open();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            reader.Read();
+
+            int id = reader.GetInt32(0) + 1;
+            string announceData = DeadlineTextBox.Text.ToString();
+
+            reader.Close();
+
+            string query = "INSERT INTO deadlines (team_id, deadline_id, deadline_text, deadline_date, deadline_met) " +
+                      "VALUES (@team_id, @roll_number_1, @roll_number_2, @roll_number_3, 0)";
+
+            cmd = new MySqlCommand(query, conn);
+
+            // Add parameters
+            cmd.Parameters.AddWithValue("@team_id", teamId);
+            cmd.Parameters.AddWithValue("@roll_number_1", id);
+            cmd.Parameters.AddWithValue("@roll_number_3", deadlineDate.Date);
+            cmd.Parameters.AddWithValue("@roll_number_2", announceData);
+
+            cmd.ExecuteNonQuery();
+
             Deadlinepopup.IsOpen = false;
+            this.NavigationService.Refresh();
         }
 
         private void AnnouncementPopUpClose(object sender, RoutedEventArgs e)
@@ -328,8 +408,7 @@ namespace Project_1
 
             Announcepopup.IsOpen = false;
 
-            this.NavigationService.Navigate(new Uri("SupervisorTeams.xaml", UriKind.Relative));
-
+            this.NavigationService.Refresh();
         }
 
 
@@ -341,6 +420,7 @@ namespace Project_1
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
+            Uploadpopup.IsOpen = false;
             Deadlinepopup.IsOpen = false;
             Announcepopup.IsOpen = false;
         }
@@ -355,8 +435,6 @@ namespace Project_1
             DateTime oldVal = (DateTime)e.OldValue;
             DateTime newVal = (DateTime)e.NewValue;
 
-            
-
             foreach (DateTime date in original)
             {
                 if (date == newVal)
@@ -370,9 +448,8 @@ namespace Project_1
                 return;
             }
 
+            deadlineDate = newVal;
             Deadlinepopup.IsOpen = true;
-
-            this.NavigationService.Navigate(new Uri("SupervisorTeams.xaml", UriKind.Relative));
         }
 
         private void Button_DownloadFile_Click(object sender, RoutedEventArgs e)
@@ -432,6 +509,4 @@ namespace Project_1
     {
         public string AnnouncementsText { get; set; }
     }
-
-
 }

@@ -2,13 +2,13 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="Admin Evaluations.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="AdminAnnouncements.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="AdminDashboard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="AdminEvaluations.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="AdminLibrary.xaml.cs">
@@ -52,13 +52,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Admin Evaluations.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="AdminAnnouncements.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="AdminDashboard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AdminEvaluations.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="AdminLibrary.xaml">

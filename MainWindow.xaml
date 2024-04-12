@@ -8,7 +8,7 @@
        xmlns:local="clr-namespace:Project_1"
        mc:Ignorable="d"
        Title="FYP Management System - Scale IT" 
-       Height="900" 
+       Height="950" 
        Width="1600"
        GlowBrush="{DynamicResource MahApps.Brushes.Accent}"
        ResizeMode="CanResizeWithGrip"

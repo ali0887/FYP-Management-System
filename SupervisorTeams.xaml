@@ -91,11 +91,11 @@
                 </Border>
 
                 <Border Style="{StaticResource OutlineBorderStyle}" Height="202" Width="975" Margin="-304,10,0,0">
-                    <StackPanel Width="1031">
+                    <StackPanel Margin="0,0,-1,0">
 
-                        <TextBlock Text="Team Information: " FontSize="20" Foreground="{StaticResource AccentColorBrush}" Margin="-650,0,0,10" FontFamily="Fonts/#Roboto Light" Width="378"/>
+                        <TextBlock Text="Team Information: " FontSize="20" Foreground="{StaticResource AccentColorBrush}" Margin="-580,0,0,10" FontFamily="Fonts/#Roboto Light" Width="378"/>
 
-                        <StackPanel Orientation="Horizontal" Width="946" Height="49" Margin="-80,0,0,0">
+                        <StackPanel Orientation="Horizontal" Width="946" Height="49" Margin="-5,0,0,0">
 
 
                             <StackPanel Orientation="Vertical">
@@ -142,6 +142,39 @@
 
                         </StackPanel>
 
+                        <StackPanel Orientation="Horizontal" Width="946" Height="49" Margin="-5,15,0,0">
+
+
+                            <StackPanel Orientation="Vertical">
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Supervisor Name: " FontSize="15"/>
+                                    <TextBlock x:Name="SupName" FontSize="15" Margin="5,0,0,0"/>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                    <TextBlock Text="Supervisor ID: " FontSize="15"/>
+                                    <TextBlock x:Name="SupRoll" FontSize="15" Margin="5,0,0,0"/>
+                                </StackPanel>
+
+                            </StackPanel>
+
+                            <StackPanel Orientation="Vertical" Margin="100,0,0,0">
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="FYP Year: " FontSize="15"/>
+                                    <TextBlock x:Name="FYPYear" FontSize="15" Margin="5,0,0,0"/>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                    <TextBlock Text="Approved: " FontSize="15"/>
+                                    <TextBlock x:Name="FYPApproved" FontSize="15" Margin="5,0,0,0"/>
+                                </StackPanel>
+
+                            </StackPanel>
+
+                        </StackPanel>
+
                     </StackPanel>
                 </Border>
 
@@ -158,23 +191,23 @@
                                       DateChanged="calender_DateChanged"
                                       ShowNextMonthDays="False"
                                       ShowPreviousMonthDays="False"
-                                      
                                       />
                         </Viewbox>
 
 
-                        <Popup x:Name="Deadlinepopup" Placement="Center">
-                            <Border Background="White" BorderBrush="Black" BorderThickness="1" Padding="10">
+                        <Popup x:Name="Deadlinepopup" Placement="Center" Width="500" Height="420">
+                            <Border Background="#E3F2FD" BorderBrush="Black" BorderThickness="1" Padding="10">
                                 <StackPanel>
-                                    <TextBlock Text="Enter Deadline Message:" FontWeight="Bold" Margin="0 0 0 10" FontSize="25"/>
-                                    <TextBox x:Name="DeadlineTextBox" TextWrapping="Wrap" Height="300" Margin="0 0 0 10" FontSize="18"/>
+                                    <TextBlock Text="Enter Deadline Message:" FontWeight="Bold" Margin="0 0 0 10" FontSize="25" Foreground="MidnightBlue"/>
+                                    <TextBox x:Name="DeadlineTextBox" TextWrapping="Wrap" Height="300" Margin="0 0 0 10" FontSize="18" Background="WhiteSmoke"/>
                                     <StackPanel Orientation="Horizontal">
-                                        <Button Content="Add Announcement" Click="DeadlinePopUpClose"/>
-                                        <Button Content="Cancel" Click="CancelButton_Click"/>
+                                        <Button Content="Add Deadline" Click="DeadlinePopUpClose" Style="{StaticResource MahApps.Styles.Button.Flat}" Background="DodgerBlue" Foreground="White"/>
+                                        <Button Content="Cancel" Click="CancelButton_Click" Style="{StaticResource MahApps.Styles.Button.Flat}" Background="LightSkyBlue" Foreground="Black" Margin="20,0,0,0"/>
                                     </StackPanel>
                                 </StackPanel>
                             </Border>
                         </Popup>
+
 
                     </StackPanel>
                 </Border>
@@ -185,28 +218,26 @@
                             <TextBlock Text="Announcements: " FontSize="20" Foreground="{StaticResource AccentColorBrush}"  FontFamily="Fonts/#Roboto Light" />
                             <Button Content="Add Announcement" Click="AddAnnouncementButton"  HorizontalAlignment="Left" Margin="270,0,0,0" VerticalAlignment="Top" Width="150" Height="30" Style="{StaticResource MahApps.Styles.Button.Flat}" Background="SkyBlue"/>
 
-                            <Popup x:Name="Announcepopup" Placement="Center" Width="500" Height="500">
-                                <Border Background="White" BorderBrush="Black" BorderThickness="1" Padding="10">
+                            <Popup x:Name="Announcepopup" Placement="Center" Width="500" Height="420">
+                                <Border Background="#E3F2FD" BorderBrush="Black" BorderThickness="1" Padding="10">
                                     <StackPanel>
-                                        <TextBlock Text="Enter Announcement Message:" FontWeight="Bold" Margin="0 0 0 10" FontSize="25"/>
-                                        <TextBox x:Name="AnnouncementTextBox" TextWrapping="Wrap" Height="300" Margin="0 0 0 10" FontSize="18"/>
+                                        <TextBlock Text="Enter Announcement Message:" FontWeight="Bold" Margin="0 0 0 10" FontSize="25" Foreground="MidnightBlue"/>
+                                        <TextBox x:Name="AnnouncementTextBox" TextWrapping="Wrap" Height="300" Margin="0 0 0 10" FontSize="18" Background="WhiteSmoke"/>
                                         <StackPanel Orientation="Horizontal">
-                                            <Button Content="Add Announcement" Click="AnnouncementPopUpClose"/>
-                                            <Button Content="Cancel" Click="CancelButton_Click"/>
+                                            <Button Content="Add Announcement" Click="AnnouncementPopUpClose" Style="{StaticResource MahApps.Styles.Button.Flat}" Background="DodgerBlue" Foreground="White"/>
+                                            <Button Content="Cancel" Click="CancelButton_Click" Style="{StaticResource MahApps.Styles.Button.Flat}" Background="LightSkyBlue" Foreground="Black" Margin="20,0,0,0"/>
                                         </StackPanel>
                                     </StackPanel>
                                 </Border>
                             </Popup>
 
-
-
                         </StackPanel>
 
-                        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible">
-                            <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" CanUserAddRows="False" Style="{StaticResource MahApps.Styles.DataGrid.Azure}" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="370" Margin="0,20,0,0" Width="619">
+                        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Hidden">
+                            <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" CanUserAddRows="False" Style="{StaticResource MahApps.Styles.DataGrid.Azure}" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="397" Margin="0,20,0,0" Width="619">
                                 <DataGrid.Columns>
 
-                                    <DataGridTemplateColumn Header="Announcement" Width="600">
+                                    <DataGridTemplateColumn Header="Announcement" Width="595">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
                                                 <TextBlock Text="{Binding AnnouncementsText}" TextWrapping="Wrap" FontSize="15"/>
@@ -228,11 +259,30 @@
                     <StackPanel>
                         
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Uploads: " FontSize="20" Foreground="{StaticResource AccentColorBrush}"  FontFamily="Fonts/#Roboto Light" />
+                            <TextBlock Text="Uploads: " FontSize="20" Foreground="{StaticResource AccentColorBrush}"  FontFamily="Fonts/#Roboto Light" Width="612" />
+                            <Button Content="Add File" Click="AddUploadButton" HorizontalAlignment="Left" Margin="-180,0,0,0" VerticalAlignment="Top" Width="150" Height="30" Style="{StaticResource MahApps.Styles.Button.Flat}" Background="SkyBlue"/>
+
+                            <Popup x:Name="Uploadpopup" Placement="Center" Width="500" Height="420">
+                                <Border Background="#E3F2FD" BorderBrush="Black" BorderThickness="1" Padding="10">
+                                    <StackPanel>
+                                        <TextBlock Text="Enter Description:" FontWeight="Bold" Margin="0 0 0 10" FontSize="25" Foreground="MidnightBlue"/>
+                                        <TextBox x:Name="UploadTextBox" TextWrapping="Wrap" Height="200" Margin="0 0 0 10" FontSize="18" Background="WhiteSmoke"/>
+                                        <!-- Added FilePicker control -->
+                                        <Button Content="Select File" Click="SelectFile_Click" Style="{StaticResource MahApps.Styles.Button.Flat}" Background="DodgerBlue" Foreground="White" Margin="0 10 0 10"/>
+                                        <TextBlock x:Name="SelectedFileText" Margin="0 0 0 10" FontSize="18" Foreground="MidnightBlue"/>
+                                        <!-- TextBlock to display selected file -->
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Upload" Click="UploadPopUpClose" Style="{StaticResource MahApps.Styles.Button.Flat}" Background="DodgerBlue" Foreground="White"/>
+                                            <Button Content="Cancel" Click="CancelButton_Click" Style="{StaticResource MahApps.Styles.Button.Flat}" Background="LightSkyBlue" Foreground="Black" Margin="20,0,0,0"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </Popup>
+
                         </StackPanel>
 
-                        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible">
-                            <DataGrid x:Name="uploadGrid" AutoGenerateColumns="False" CanUserAddRows="False" Style="{StaticResource MahApps.Styles.DataGrid.Azure}" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="370" Margin="0,20,0,0" Width="619">
+                        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Hidden" Height="440">
+                            <DataGrid x:Name="uploadGrid" AutoGenerateColumns="False" CanUserAddRows="False" Style="{StaticResource MahApps.Styles.DataGrid.Azure}" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="418" Margin="0,20,0,0" Width="610">
                                 <DataGrid.Columns>
 
                                     <DataGridTemplateColumn Header="File Name" Width="100">
@@ -243,7 +293,7 @@
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
 
-                                    <DataGridTemplateColumn Header="Description" Width="400">
+                                    <DataGridTemplateColumn Header="Description" Width="380">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
                                                 <TextBlock Text="{Binding AnnouncementsText}" TextWrapping="Wrap" FontSize="15" />

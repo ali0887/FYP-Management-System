@@ -483,13 +483,13 @@ C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\bin\Release\net8.0-win
 C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\bin\Release\net8.0-windows\Syncfusion.Licensing.dll
 C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\bin\Release\net8.0-windows\Syncfusion.Shared.WPF.dll
 C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\bin\Release\net8.0-windows\Syncfusion.Tools.WPF.dll
-C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-windows\Admin Evaluations.g.cs
 C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-windows\AdminAnnouncements.g.cs
 C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-windows\StudentEvaluations.g.cs
 C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-windows\StudentUploads.g.cs
 C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-windows\SupervisorEvaluations.g.cs
-C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-windows\Admin Evaluations.baml
 C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-windows\AdminAnnouncements.baml
 C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-windows\StudentEvaluations.baml
 C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-windows\StudentUploads.baml
 C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-windows\SupervisorEvaluations.baml
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-windows\AdminEvaluations.g.cs
+C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\obj\Release\net8.0-windows\AdminEvaluations.baml

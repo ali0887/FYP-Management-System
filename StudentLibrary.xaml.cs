@@ -29,27 +29,11 @@ namespace Project_1
 
             filter.ItemsSource = filterBy;
 
-
-        }
-
-        private void Button_Click_Out(object sender, RoutedEventArgs e)
-        {
-            App._username = "";
-            this.NavigationService.Navigate(new Uri("AdminLogin.xaml", UriKind.Relative));
-        }
-
-        private void Button_Click_Search(object sender, RoutedEventArgs e)
-        {
             string connectionString = "Server=127.0.0.1;Port=3306;Database=SE;Uid=root;Pwd=12345678;";
             MySqlConnection conn = new MySqlConnection(connectionString);
             MySqlCommand cmd = new MySqlCommand("SELECT * FROM FYPRepository", conn);
             conn.Open();
             MySqlDataReader reader = cmd.ExecuteReader();
-
-            dataList.Clear();
-            keywords.Clear();
-            string see = search.ToString();
-            string[] words = see.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
             while (reader.Read())
             {
@@ -60,7 +44,29 @@ namespace Project_1
                 fYPReports.Tools = reader[3].ToString();
 
                 dataList.Add(fYPReports);
+            }
 
+            conn.Close();
+        }
+
+        private void Button_Click_Out(object sender, RoutedEventArgs e)
+        {
+            App._username = "";
+            this.NavigationService.Navigate(new Uri("AdminLogin.xaml", UriKind.Relative));
+        }
+
+        private void Button_Click_Search(object sender, RoutedEventArgs e)
+        {
+            keywords.Clear();
+            string see = search.ToString();
+
+            if (see.Length == 0)
+                return;
+
+            string[] words = see.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (FYPReports fYPReports in dataList)
+            {
                 int count = 0;
 
                 if (currentIndex == 0) // Filter by title
@@ -76,7 +82,7 @@ namespace Project_1
                                 count++;
                             }
                         }
-                    }  
+                    }
                 }
 
                 else if (currentIndex == 1)
@@ -114,8 +120,6 @@ namespace Project_1
                 keywords.Add(count);
             }
 
-            conn.Close();
-
             var combinedList = dataList.Zip(keywords, (fyp, keyword) => new { FYP = fyp, Keyword = keyword })
                            // Sorting based on the values in the second list
                            .OrderByDescending(item => item.Keyword)
@@ -125,35 +129,17 @@ namespace Project_1
                            .Select(item => item.FYP)
                            .ToList();
 
-            // Reassigning the sorted and filtered list back to dataList
-            dataList = combinedList;
-            dataGrid.ItemsSource = dataList;
+            dataGrid.ItemsSource = null;
+            dataGrid.ItemsSource = combinedList;
+            dataGrid.Items.Refresh();
 
         }
 
         private void Button_Click_Search_All(object sender, RoutedEventArgs e)
         {
-            string connectionString = "Server=127.0.0.1;Port=3306;Database=SE;Uid=root;Pwd=12345678;";
-            MySqlConnection conn = new MySqlConnection(connectionString);
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM FYPRepository", conn);
-            conn.Open();
-            MySqlDataReader reader = cmd.ExecuteReader();
-
-            dataList.Clear();
-
-            while (reader.Read())
-            {
-                FYPReports fYPReports = new FYPReports();
-                fYPReports.Title = reader[0].ToString();
-                fYPReports.Description = reader[1].ToString();
-                fYPReports.Link = reader[2].ToString();
-                fYPReports.Tools = reader[3].ToString();
-
-                dataList.Add(fYPReports);
-            }
-
-            conn.Close();
+            dataGrid.ItemsSource = null;
             dataGrid.ItemsSource = dataList;
+            dataGrid.Items.Refresh();
         }
 
         private void SplitButtonClick(object sender, RoutedEventArgs e)
