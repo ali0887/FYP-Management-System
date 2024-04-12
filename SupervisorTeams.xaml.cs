@@ -3,6 +3,10 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Xml.Linq;
+using Syncfusion.Windows.Shared;
+using System.ComponentModel;
+using System.Windows.Media;
+using System.Configuration;
 
 namespace Project_1
 {
@@ -16,8 +20,12 @@ namespace Project_1
         string user;
         List<string> teamName = new List<string>();
         List<string> memberName = new List<string>();
-        List<announcements> announcement = new List<announcements>();
+        List<Announcements> announcement = new List<Announcements>();
+        List<Deadlines> deadlines = new List<Deadlines>();  
         List<String> announcementsText = new List<String>();
+        DatesCollection original = new DatesCollection();
+
+
         int teamId;
         Team t;
 
@@ -43,18 +51,17 @@ namespace Project_1
 
             filter.ItemsSource = teamName;
 
+            calender.TodayCellSelectedBorderBrush = Brushes.Red;
+            calender.TodayCellSelectedBackground = Brushes.Red;
 
-        }
+            calender.TodayRowIsVisible = true;
 
-        private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
-        {
-            // Get the selected date
-            DateTime selectedDate = (sender as Calendar).SelectedDate ?? DateTime.Today;
+            calender.SelectedDayCellBackground = Brushes.Yellow;
+            calender.SelectedDayCellBorderBrush = Brushes.Blue;
+            calender.SelectionForeground = Brushes.Red;
+            calender.SelectedDayCellHoverBackground = Brushes.Green;
+            calender.SelectionBorderBrush = Brushes.Red;
 
-            // Display a popup window to enter the announcement
-            Deadlinepopup.IsOpen = true;
-
-            // Here you can access the entered announcement from the popup window and save it to the database
         }
 
         private void AddAnnouncementButton(object sender, RoutedEventArgs e)
@@ -149,13 +156,13 @@ namespace Project_1
             S3Roll.Text = t.Roll3;
 
 
-            cmd = new MySqlCommand("SELECT * FROM announcements WHERE team_id = @Username", conn);
+            cmd = new MySqlCommand("SELECT * FROM Announcements WHERE team_id = @Username", conn);
             cmd.Parameters.AddWithValue("@Username", i);
 
             reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                announcements announce = new announcements();
+                Announcements announce = new Announcements();
                 announce.viewed = reader.GetBoolean(5);
                 announce.text = reader.GetString(4);
                 announce.teamID = i;
@@ -168,7 +175,7 @@ namespace Project_1
           
             reader.Close();
 
-            foreach (announcements announce in announcement)
+            foreach (Announcements announce in announcement)
             {
                 if (announce.announcementBy.Equals(announce.announcementTo) && announce.announcementBy.Equals(user))
                 {
@@ -177,6 +184,21 @@ namespace Project_1
 
                 else if (user.Equals(announce.announcementTo))
                 {
+                    string name;
+
+                    if (t.Roll1.Equals(announce.announcementBy))
+                    {
+                        name = memberName[0];
+                    }
+                    else if (t.Roll2.Equals(announce.announcementBy))
+                    {
+                        name = memberName[1];
+                    }
+                    else
+                    {
+                        name = memberName[2];
+                    }
+
                     announcementsText.Add("An announcment was added by " + announce.announcementBy + ": " + announce.text);
                 }
             }
@@ -193,11 +215,51 @@ namespace Project_1
             // Set the ItemsSource of the DataGrid to the collection of AnnouncementItem objects
             dataGrid.ItemsSource = announcementItems;
 
+            cmd = new MySqlCommand("SELECT * FROM deadlines WHERE team_id = @Username", conn);
+            cmd.Parameters.AddWithValue("@Username", i);
+
+            reader = cmd.ExecuteReader();
+            DatesCollection dc = new DatesCollection();
+
+            while (reader.Read())
+            {
+                Deadlines deadline = new Deadlines();
+
+                deadline.teamID = reader.GetInt32(0);
+                deadline.deadlineID = reader.GetInt32(1);
+
+                DateTime dateO = reader.GetDateTime(3);
+                Date date = new Date(dateO.Year, dateO.Month, dateO.Day);
+                deadline.deadlineDate = date;
+
+                deadline.deadlineMet = reader.GetBoolean(4);
+                deadline.deadlineText = reader.GetString(2);
+
+                calender.SetToolTip(deadline.deadlineDate, new ToolTip() { Content = deadline.deadlineText } );
+
+                SpecialDate specialDate = new SpecialDate();
+                specialDate.Equals(date);
+                calender.SpecialDates.Add(specialDate);
+                
+                dc.Add(dateO);
+
+
+                deadlines.Add(deadline);
+            }
+
+            calender.SelectedDates = dc;
+
+            foreach (DateTime datee in dc)
+            {
+                original.Add(datee);
+            }
+            
             conn.Close();
         }
 
         private void DeadlinePopUpClose(object sender, RoutedEventArgs e)
         {
+            this.NavigationService.Navigate(new Uri("SupervisorTeams.xaml", UriKind.Relative));
             Deadlinepopup.IsOpen = false;
         }
 
@@ -214,9 +276,6 @@ namespace Project_1
             string announceData = AnnouncementTextBox.Text.ToString();
 
             reader.Close();
-
-            
-
 
             string query = "INSERT INTO announcements (team_id, announcement_id, announcement_by_id, announcement_to_id, announcement_text, viewewd) " +
                       "VALUES (@team_id, @roll_number_1, @roll_number_2, @roll_number_3, @supervisor_id, 0)";
@@ -269,6 +328,8 @@ namespace Project_1
 
             Announcepopup.IsOpen = false;
 
+            this.NavigationService.Navigate(new Uri("SupervisorTeams.xaml", UriKind.Relative));
+
         }
 
 
@@ -280,7 +341,43 @@ namespace Project_1
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
+            Deadlinepopup.IsOpen = false;
             Announcepopup.IsOpen = false;
+        }
+
+        private void calender_DateChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            foreach(var date in original)
+            {
+                calender.SelectedDates.Add(date);
+            }
+
+            DateTime oldVal = (DateTime)e.OldValue;
+            DateTime newVal = (DateTime)e.NewValue;
+
+            
+
+            foreach (DateTime date in original)
+            {
+                if (date == newVal)
+                {
+                    return;
+                }
+            }
+
+            if (oldVal.Month != newVal.Month)
+            {
+                return;
+            }
+
+            Deadlinepopup.IsOpen = true;
+
+            this.NavigationService.Navigate(new Uri("SupervisorTeams.xaml", UriKind.Relative));
+        }
+
+        private void Button_DownloadFile_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
 
 
@@ -305,7 +402,7 @@ namespace Project_1
         }
     }
 
-    public class announcements
+    public class Announcements
     {
         public int teamID { get; set; }
         public int announcmentID { get; set; }
@@ -313,6 +410,16 @@ namespace Project_1
         public string announcementTo { get; set; }
         public bool viewed { get; set; }
         public string text { get; set; }
+
+    }
+
+    public class Deadlines
+    {
+        public int teamID { get; set; }
+        public int deadlineID { get; set; }
+        public Date deadlineDate { get; set; }
+        public bool deadlineMet { get; set; }
+        public string deadlineText { get; set; }
 
     }
 

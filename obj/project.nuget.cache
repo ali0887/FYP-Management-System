@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "382yxiEcm9c3y2m2yUNtA2ljhOQQHAauuiqRGWVqRyZOBQFOq2kT+Mod38eU2tvN3ZSMZtSMD5KfR5m1F7u/yA==",
+  "dgSpecHash": "kg79Im26dTqWJrGKg+ml5b1SaDv6vwCP1M7TlwAQYEr2/AMN25Y09+cH+PiqVvxKYOMbEMHfvCPyORu1Knyi9Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\alibh\\Source\\Repos\\ali0887\\FYP-Management-System\\Project 1.csproj",
   "expectedPackageFiles": [
@@ -22,6 +22,9 @@
     "C:\\Users\\alibh\\.nuget\\packages\\modernwpfui.mahapps\\0.9.5\\modernwpfui.mahapps.0.9.5.nupkg.sha512",
     "C:\\Users\\alibh\\.nuget\\packages\\mysql.data\\8.3.0\\mysql.data.8.3.0.nupkg.sha512",
     "C:\\Users\\alibh\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\alibh\\.nuget\\packages\\syncfusion.licensing\\25.1.39\\syncfusion.licensing.25.1.39.nupkg.sha512",
+    "C:\\Users\\alibh\\.nuget\\packages\\syncfusion.shared.wpf\\25.1.39\\syncfusion.shared.wpf.25.1.39.nupkg.sha512",
+    "C:\\Users\\alibh\\.nuget\\packages\\syncfusion.tools.wpf\\25.1.39\\syncfusion.tools.wpf.25.1.39.nupkg.sha512",
     "C:\\Users\\alibh\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\alibh\\.nuget\\packages\\system.configuration.configurationmanager\\4.4.1\\system.configuration.configurationmanager.4.4.1.nupkg.sha512",
     "C:\\Users\\alibh\\.nuget\\packages\\system.diagnostics.diagnosticsource\\7.0.2\\system.diagnostics.diagnosticsource.7.0.2.nupkg.sha512",

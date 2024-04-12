@@ -1,6 +1,8 @@
 ﻿using MySql.Data.MySqlClient;
 using System.Windows;
 using System.Windows.Controls;
+using System.Diagnostics;
+using System.Windows.Navigation;
 
 namespace Project_1
 {
@@ -194,5 +196,32 @@ namespace Project_1
             this.NavigationService.Navigate(new Uri("SupervisorTeams.xaml", UriKind.Relative));
         }
 
+
+        private void Button_OpenReport_Click(object sender, RoutedEventArgs e)
+        {
+            // Get the clicked button
+            Button button = sender as Button;
+
+            // Get the corresponding FYPReports object from the DataContext of the button
+            FYPReports report = button.DataContext as FYPReports;
+
+            // Check if the report is not null and the Link property is not empty
+            if (report != null && !string.IsNullOrEmpty(report.Link))
+            {
+                try
+                {
+                    // Open the default web browser and navigate to the specified URL
+                    Process.Start("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe", report.Link);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error opening report: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No report link available.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
     }
 }

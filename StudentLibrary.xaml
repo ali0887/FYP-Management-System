@@ -115,10 +115,11 @@
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
 
-                                    <DataGridTemplateColumn Header="Link to Report" Width="300">
+                                    <DataGridTemplateColumn Header="Link to Report" Width="150">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <TextBlock Text="{Binding Link}" TextWrapping="Wrap"/>
+                                                <!-- Define a button inside the cell template -->
+                                                <Button Content="Open Report" Click="Button_OpenReport_Click" Style="{StaticResource MahApps.Styles.Button.Flat}" Background="SkyBlue" Width="100" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>

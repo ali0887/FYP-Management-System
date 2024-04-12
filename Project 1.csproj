@@ -38,6 +38,8 @@
     <PackageReference Include="ModernWpfUI.MahApps" Version="0.9.5" />
     <PackageReference Include="MySql.Data" Version="8.3.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Syncfusion.Licensing" Version="25.1.39" />
+    <PackageReference Include="Syncfusion.Tools.WPF" Version="25.1.39" />
   </ItemGroup>
 
 </Project>

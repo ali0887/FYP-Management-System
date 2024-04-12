@@ -16,7 +16,7 @@ namespace Project_1
         string user;
         string teamName;
         List<string> memberName = new List<string>();
-        List<announcements> announcement = new List<announcements>();
+        List<Announcements> announcement = new List<Announcements>();
         List<String> announcementsText = new List<String>();
         int teamId;
         Team t;
@@ -116,7 +116,7 @@ namespace Project_1
             reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                announcements announce = new announcements();
+                Announcements announce = new Announcements();
                 announce.viewed = reader.GetBoolean(5);
                 announce.text = reader.GetString(4);
                 announce.teamID = teamId;
@@ -129,7 +129,7 @@ namespace Project_1
 
             reader.Close();
 
-            foreach (announcements announce in announcement)
+            foreach (Announcements announce in announcement)
             {
                 if (announce.announcementBy.Equals(announce.announcementTo) && announce.announcementBy.Equals(user))
                 {
