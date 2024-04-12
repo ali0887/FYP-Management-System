@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Project_1
 {
     /// <summary>
-    /// Interaction logic for StudentsUpload.xaml
+    /// Interaction logic for StudentEvaluations.xaml
     /// </summary>
-    public partial class StudentsUpload : Page
+    public partial class StudentEvaluations : Page
     {
-        public StudentsUpload()
+        public StudentEvaluations()
         {
             InitializeComponent();
         }

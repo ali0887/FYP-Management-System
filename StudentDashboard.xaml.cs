@@ -100,5 +100,15 @@ namespace Project_1
         {
             this.NavigationService.Navigate(new Uri("StudentAnnouncements.xaml", UriKind.Relative));
         }
+
+        private void SUpload(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("StudentUploads.xaml", UriKind.Relative));
+        }
+
+        private void SEvaluations(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("StudentEvaluations.xaml", UriKind.Relative));
+        }
     }
 }

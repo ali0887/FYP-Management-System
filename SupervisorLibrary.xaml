@@ -48,6 +48,7 @@
                 <MenuItem Header="Registration" Template="{StaticResource Menu_Template}" Click="TRegistration"></MenuItem>
                 <MenuItem Header="Resource Lib" Template="{StaticResource Menu_Template}" Click="TLibrary"></MenuItem>
                 <MenuItem Header="Teams" Template="{StaticResource Menu_Template}" Click="TTeams"></MenuItem>
+                <MenuItem Header="Evaluations" Template="{StaticResource Menu_Template}" Click="TEvaluations"></MenuItem>
 
             </Menu>
         </StackPanel>

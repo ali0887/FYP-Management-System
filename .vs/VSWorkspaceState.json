@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Database"
   ],
-  "SelectedNode": "\\StudentAnnouncements.xaml.cs",
+  "SelectedNode": "\\SupervisorTeams.xaml",
   "PreviewInSolutionExplorer": false
 }

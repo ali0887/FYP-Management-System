@@ -400,6 +400,11 @@ namespace Project_1
         {
             this.NavigationService.Navigate(new Uri("SupervisorTeams.xaml", UriKind.Relative));
         }
+
+        private void TEvaluations(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("SupervisorEvaluations.xaml", UriKind.Relative));
+        }
     }
 
     public class Announcements

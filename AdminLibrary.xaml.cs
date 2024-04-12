@@ -145,6 +145,16 @@ namespace Project_1
             this.NavigationService.Navigate(new Uri("AdminLibrary.xaml", UriKind.Relative));
         }
 
+        private void AEvaluations(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("AdminEvaluations.xaml", UriKind.Relative));
+        }
+
+        private void AAnnouncements(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("AdminAnnouncements.xaml", UriKind.Relative));
+        }
+
         private void PopUpClose(object sender, RoutedEventArgs e)
         {
             popup.IsOpen = false;

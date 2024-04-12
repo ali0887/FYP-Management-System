@@ -2,6 +2,12 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="Admin Evaluations.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="AdminAnnouncements.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="AdminDashboard.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -20,13 +26,19 @@
     <Compile Update="StudentDashboard.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="StudentEvaluations.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="StudentLibrary.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="StudentsUpload.xaml.cs">
+    <Compile Update="StudentUploads.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="SupervisorDashboard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SupervisorEvaluations.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="SupervisorLibrary.xaml.cs">
@@ -40,6 +52,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Admin Evaluations.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AdminAnnouncements.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="AdminDashboard.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -61,13 +79,19 @@
     <Page Update="StudentDashboard.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="StudentEvaluations.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="StudentLibrary.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="StudentsUpload.xaml">
+    <Page Update="StudentUploads.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="SupervisorDashboard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SupervisorEvaluations.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="SupervisorLibrary.xaml">
