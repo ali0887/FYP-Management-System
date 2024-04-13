@@ -240,22 +240,22 @@
 
                         </StackPanel>
 
-                        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Hidden" Height="411">
-                            <DataGrid x:Name="uploadGrid" AutoGenerateColumns="False" CanUserAddRows="False" Style="{StaticResource MahApps.Styles.DataGrid.Azure}" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="370" Margin="0,20,0,0" Width="619">
+                        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Hidden" Height="440">
+                            <DataGrid x:Name="uploadGrid" AutoGenerateColumns="False" CanUserAddRows="False" Style="{StaticResource MahApps.Styles.DataGrid.Azure}" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="418" Margin="0,20,0,0" Width="610">
                                 <DataGrid.Columns>
 
-                                    <DataGridTemplateColumn Header="File Name" Width="100">
+                                    <DataGridTemplateColumn Header="File Name" Width="150">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <TextBlock Text="{Binding AnnouncementsText}" TextWrapping="Wrap" FontSize="15"/>
+                                                <TextBlock Text="{Binding FileName}" TextWrapping="Wrap" FontSize="15"/>
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
 
-                                    <DataGridTemplateColumn Header="Description" Width="400">
+                                    <DataGridTemplateColumn Header="Description" Width="330">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <TextBlock Text="{Binding AnnouncementsText}" TextWrapping="Wrap" FontSize="15" />
+                                                <TextBlock Text="{Binding FileDesc}" TextWrapping="Wrap" FontSize="15" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
@@ -263,7 +263,7 @@
                                     <DataGridTemplateColumn Header="Download" Width="120">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <Button Content="Open Report" Click="Button_DownloadFile_Click" Style="{StaticResource MahApps.Styles.Button.Flat}" Background="SkyBlue" Width="100" />
+                                                <Button Content="Download File" Click="Button_DownloadFile_Click" Style="{StaticResource MahApps.Styles.Button.Flat}" Background="SkyBlue" Width="110" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>

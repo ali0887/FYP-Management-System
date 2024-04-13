@@ -7,6 +7,10 @@ using Syncfusion.Windows.Shared;
 using System.ComponentModel;
 using System.Windows.Media;
 using System.Configuration;
+using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
+using System.IO;
+using System.Diagnostics;
 
 namespace Project_1
 {
@@ -21,7 +25,8 @@ namespace Project_1
         List<string> memberName = new List<string>();
         List<Announcements> announcement = new List<Announcements>();
         List<Deadlines> deadlines = new List<Deadlines>();
-        List<String> announcementsText = new List<String>();
+        List<string> announcementsText = new List<string>();
+        List<supervisorUploadItem> supUp = new List<supervisorUploadItem>();
         DatesCollection original = new DatesCollection();
         Team t = new Team();
 
@@ -236,8 +241,71 @@ namespace Project_1
                 original.Add(datee);
             }
 
-            conn.Close();
+            reader.Close();
 
+            cmd = new MySqlCommand("SELECT * FROM supervisorUpload WHERE team_id = @Username", conn);
+            cmd.Parameters.AddWithValue("@Username", t.TeamID);
+            reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                supervisorUploadItem upload = new supervisorUploadItem();
+                upload.FileName = reader.GetString(2);
+                upload.FilePath = reader.GetString(3);
+                upload.FileDesc = reader.GetString(4);
+
+                supUp.Add(upload);
+            }
+
+            supUp.Reverse();
+            uploadGrid.ItemsSource = supUp;
+
+            reader.Close();
+            conn.Close();
+        }
+
+        private async void Button_DownloadFile_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            supervisorUploadItem report = button.DataContext as supervisorUploadItem;
+
+            if (report != null && !string.IsNullOrEmpty(report.FilePath))
+            {
+                string destinationFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads", Path.GetFileName(report.FilePath));
+                string blobStorageContainerString = "DefaultEndpointsProtocol=https;AccountName=seprojectstorage;AccountKey=km44lJwL+Vsxy4QcYbdu7kVq+xELZcVFJByA9vqcvdqkvP/+fgmTb9fOwPpebWrFkK64KOXD2fqa+AStD9Ep6w==;EndpointSuffix=core.windows.net";
+                string blobStorageContainerName = "supervisorupload";
+                BlobContainerClient container = new BlobContainerClient(blobStorageContainerString, blobStorageContainerName);
+                BlobClient blob = container.GetBlobClient(report.FilePath);
+                await blob.DownloadToAsync(destinationFilePath);
+
+                string fileNameWithoutUniqueSuffix = RemoveUniqueSuffix(Path.GetFileName(destinationFilePath));
+                string directoryPath = Path.GetDirectoryName(destinationFilePath);
+                string newDestinationFilePath = Path.Combine(directoryPath, fileNameWithoutUniqueSuffix);
+
+                File.Move(destinationFilePath, newDestinationFilePath);
+            }
+        }
+
+        private string RemoveUniqueSuffix(string fileName)
+        {
+            // Get the position of the last underscore character
+            int lastUnderscoreIndex = fileName.LastIndexOf('_');
+
+            // If underscore found and it's not the first character
+            if (lastUnderscoreIndex > 0)
+            {
+                // Extract the file name without the unique suffix
+                string fileNameWithoutSuffix = fileName.Substring(0, lastUnderscoreIndex);
+
+                // Get the file extension
+                string fileExtension = Path.GetExtension(fileName);
+
+                // Return the file name with extension
+                return fileNameWithoutSuffix + fileExtension;
+            }
+
+            // If underscore not found or found at the first character, return the original file name
+            return fileName;
         }
 
         private void calender_DateChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -252,7 +320,6 @@ namespace Project_1
         {
             Announcepopup.IsOpen = true;
         }
-
 
         private void AnnouncementPopUpClose(object sender, RoutedEventArgs e)
         {
@@ -322,7 +389,6 @@ namespace Project_1
             this.NavigationService.Refresh();
         }
 
-
         private void Button_Click_Out(object sender, RoutedEventArgs e)
         {
             App._username = "";
@@ -332,11 +398,6 @@ namespace Project_1
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             Announcepopup.IsOpen = false;
-        }
-
-        private void Button_DownloadFile_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void SDashboard(object sender, RoutedEventArgs e)

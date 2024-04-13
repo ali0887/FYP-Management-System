@@ -7,6 +7,10 @@ using Syncfusion.Windows.Shared;
 using System.ComponentModel;
 using System.Windows.Media;
 using System.Configuration;
+using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
+using System.IO;
+using System.Diagnostics;
 
 namespace Project_1
 {
@@ -22,8 +26,10 @@ namespace Project_1
         List<string> memberName = new List<string>();
         List<Announcements> announcement = new List<Announcements>();
         List<Deadlines> deadlines = new List<Deadlines>();  
-        List<String> announcementsText = new List<String>();
+        List<string> announcementsText = new List<string>();
+        List<supervisorUploadItem> supUp = new List<supervisorUploadItem>();
         DatesCollection original = new DatesCollection();
+        string selectedFile;
 
         DateTime deadlineDate;
         int teamId;
@@ -271,7 +277,6 @@ namespace Project_1
                 
                 dc.Add(dateO);
 
-
                 deadlines.Add(deadline);
             }
 
@@ -281,15 +286,150 @@ namespace Project_1
             {
                 original.Add(datee);
             }
-            
+
+            reader.Close();
+
+            cmd = new MySqlCommand("SELECT * FROM supervisorUpload WHERE team_id = @Username", conn);
+            cmd.Parameters.AddWithValue("@Username", i);
+            reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                supervisorUploadItem upload = new supervisorUploadItem();
+                upload.FileName = reader.GetString(2);
+                upload.FilePath = reader.GetString(3);
+                upload.FileDesc = reader.GetString(4);
+
+                supUp.Add(upload);
+            }
+
+            supUp.Reverse();
+            uploadGrid.ItemsSource = supUp;
+
+            reader.Close();
             conn.Close();
         }
 
-        private void UploadPopUpClose(object sender, RoutedEventArgs e)
+        private async void UploadPopUpClose(object sender, RoutedEventArgs e)
         {
+            UploadingMessage.Visibility = Visibility.Visible;
+
+            string blobStorageContainerString = "DefaultEndpointsProtocol=https;AccountName=seprojectstorage;AccountKey=km44lJwL+Vsxy4QcYbdu7kVq+xELZcVFJByA9vqcvdqkvP/+fgmTb9fOwPpebWrFkK64KOXD2fqa+AStD9Ep6w==;EndpointSuffix=core.windows.net";
+            string blobStorageContainerName = "supervisorupload";
+            BlobContainerClient container = new BlobContainerClient(blobStorageContainerString, blobStorageContainerName);
+
+            string currentDirectory = Directory.GetCurrentDirectory();
+            string newDirectory = Path.Combine(currentDirectory, t.TeamID.ToString());
+
+            if (!Directory.Exists(newDirectory))
+            {
+                Directory.CreateDirectory(newDirectory);
+            }
+
+            string destinationFilePath = Path.Combine(newDirectory, Path.GetFileName(selectedFile));
+            string uniqueFileName = GetUniqueFileName(destinationFilePath);
+            string destinationFilePathWithUniqueName = Path.Combine(newDirectory, uniqueFileName);
+            File.Copy(selectedFile, destinationFilePathWithUniqueName);
+
+            BlobClient blob = container.GetBlobClient(Path.Combine(t.TeamID.ToString(), uniqueFileName));
+            FileStream stream = File.OpenRead(destinationFilePathWithUniqueName);
+            await blob.UploadAsync(stream);
+            stream.Close();
+
+            Directory.Delete(newDirectory, true);
+
+            string connectionString = "Server=127.0.0.1;Port=3306;Database=SE;Uid=root;Pwd=12345678;";
+            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlCommand cmd = new MySqlCommand("SELECT MAX(upload_id) FROM supervisorUpload", conn);
+            conn.Open();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            reader.Read();
+
+            int id = reader.GetInt32(0) + 1;
+            string uploadDescription = UploadTextBox.Text.ToString();
+            string fileName = Path.GetFileName(destinationFilePath);
+            string filePath = Path.Combine(t.TeamID.ToString(), uniqueFileName);
+
+            reader.Close();
+
+            string query = "INSERT INTO supervisorUpload (upload_id, team_id, fileName, filePath, fileDescription) " +
+                           "VALUES (@uploadid, @teamid, @filename, @filepath, @filedesc)";
+
+            cmd = new MySqlCommand(query, conn);
+
+            // Add parameters
+            cmd.Parameters.AddWithValue("@uploadid", id);
+            cmd.Parameters.AddWithValue("@teamid", t.TeamID);
+            cmd.Parameters.AddWithValue("@filename", fileName);
+            cmd.Parameters.AddWithValue("@filepath", filePath);
+            cmd.Parameters.AddWithValue("@filedesc", uploadDescription);
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close(); ;
+
             Uploadpopup.IsOpen = false;
+            UploadingMessage.Visibility = Visibility.Collapsed;
             this.NavigationService.Refresh();
         }
+
+        private async void Button_DownloadFile_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            supervisorUploadItem report = button.DataContext as supervisorUploadItem;
+
+            if (report != null && !string.IsNullOrEmpty(report.FilePath))
+            {
+                string destinationFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads", Path.GetFileName(report.FilePath));
+                string blobStorageContainerString = "DefaultEndpointsProtocol=https;AccountName=seprojectstorage;AccountKey=km44lJwL+Vsxy4QcYbdu7kVq+xELZcVFJByA9vqcvdqkvP/+fgmTb9fOwPpebWrFkK64KOXD2fqa+AStD9Ep6w==;EndpointSuffix=core.windows.net";
+                string blobStorageContainerName = "supervisorupload";
+                BlobContainerClient container = new BlobContainerClient(blobStorageContainerString, blobStorageContainerName);
+                BlobClient blob = container.GetBlobClient(report.FilePath);
+                await blob.DownloadToAsync(destinationFilePath);
+
+                string fileNameWithoutUniqueSuffix = RemoveUniqueSuffix(Path.GetFileName(destinationFilePath));
+                string directoryPath = Path.GetDirectoryName(destinationFilePath);
+                string newDestinationFilePath = Path.Combine(directoryPath, fileNameWithoutUniqueSuffix);
+
+                File.Move(destinationFilePath, newDestinationFilePath);
+            }
+        }
+
+        private string GetUniqueFileName(string filePath)
+        {
+            // Get the filename without extension
+            string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(filePath);
+            // Get the file extension
+            string fileExtension = Path.GetExtension(filePath);
+
+            // Add a unique suffix to the filename
+            string uniqueFileName = $"{fileNameWithoutExtension}_{DateTime.Now.Ticks}{fileExtension}";
+
+            return uniqueFileName;
+        }
+
+        private string RemoveUniqueSuffix(string fileName)
+        {
+            // Get the position of the last underscore character
+            int lastUnderscoreIndex = fileName.LastIndexOf('_');
+
+            // If underscore found and it's not the first character
+            if (lastUnderscoreIndex > 0)
+            {
+                // Extract the file name without the unique suffix
+                string fileNameWithoutSuffix = fileName.Substring(0, lastUnderscoreIndex);
+
+                // Get the file extension
+                string fileExtension = Path.GetExtension(fileName);
+
+                // Return the file name with extension
+                return fileNameWithoutSuffix + fileExtension;
+            }
+
+            // If underscore not found or found at the first character, return the original file name
+            return fileName;
+        }
+
 
         private void AddUploadButton(object sender, RoutedEventArgs e)
         {
@@ -306,11 +446,10 @@ namespace Project_1
 
             if (result == true)
             {
-                string filename = dlg.FileName;
-                SelectedFileText.Text = "Selected File: " + filename;
+                selectedFile = dlg.FileName;
+                SelectedFileText.Text = "Selected File: " + selectedFile;
             }
         }
-
 
         private void DeadlinePopUpClose(object sender, RoutedEventArgs e)
         {
@@ -411,7 +550,6 @@ namespace Project_1
             this.NavigationService.Refresh();
         }
 
-
         private void Button_Click_Out(object sender, RoutedEventArgs e)
         {
             App._username = "";
@@ -451,12 +589,6 @@ namespace Project_1
             deadlineDate = newVal;
             Deadlinepopup.IsOpen = true;
         }
-
-        private void Button_DownloadFile_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
 
         private void TDashboard(object sender, RoutedEventArgs e)
         {
@@ -508,5 +640,22 @@ namespace Project_1
     public class AnnouncementItem
     {
         public string AnnouncementsText { get; set; }
+    }
+
+    public class supervisorUpload
+    {
+        public int upload_id { get; set; }
+        public int team_id { get; set; }
+        public string file_name { get; set; }
+        public string file_path { get; set; }
+        public string file_desc { get; set; }
+
+    }
+
+    public class supervisorUploadItem
+    {
+        public string FileName { get; set; }
+        public string FileDesc { get; set; }
+        public string FilePath { get; set; }
     }
 }

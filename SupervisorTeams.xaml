@@ -267,17 +267,18 @@
                                     <StackPanel>
                                         <TextBlock Text="Enter Description:" FontWeight="Bold" Margin="0 0 0 10" FontSize="25" Foreground="MidnightBlue"/>
                                         <TextBox x:Name="UploadTextBox" TextWrapping="Wrap" Height="200" Margin="0 0 0 10" FontSize="18" Background="WhiteSmoke"/>
-                                        <!-- Added FilePicker control -->
                                         <Button Content="Select File" Click="SelectFile_Click" Style="{StaticResource MahApps.Styles.Button.Flat}" Background="DodgerBlue" Foreground="White" Margin="0 10 0 10"/>
                                         <TextBlock x:Name="SelectedFileText" Margin="0 0 0 10" FontSize="18" Foreground="MidnightBlue"/>
-                                        <!-- TextBlock to display selected file -->
                                         <StackPanel Orientation="Horizontal">
                                             <Button Content="Upload" Click="UploadPopUpClose" Style="{StaticResource MahApps.Styles.Button.Flat}" Background="DodgerBlue" Foreground="White"/>
                                             <Button Content="Cancel" Click="CancelButton_Click" Style="{StaticResource MahApps.Styles.Button.Flat}" Background="LightSkyBlue" Foreground="Black" Margin="20,0,0,0"/>
                                         </StackPanel>
+                                        <!-- Added TextBlock to display uploading message -->
+                                        <TextBlock x:Name="UploadingMessage" Text="Uploading to Server" FontSize="15" Foreground="DarkGreen" Margin="0,10,0,0" HorizontalAlignment="Center" Visibility="Collapsed"/>
                                     </StackPanel>
                                 </Border>
                             </Popup>
+
 
                         </StackPanel>
 
@@ -285,18 +286,18 @@
                             <DataGrid x:Name="uploadGrid" AutoGenerateColumns="False" CanUserAddRows="False" Style="{StaticResource MahApps.Styles.DataGrid.Azure}" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="418" Margin="0,20,0,0" Width="610">
                                 <DataGrid.Columns>
 
-                                    <DataGridTemplateColumn Header="File Name" Width="100">
+                                    <DataGridTemplateColumn Header="File Name" Width="150">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <TextBlock Text="{Binding AnnouncementsText}" TextWrapping="Wrap" FontSize="15"/>
+                                                <TextBlock Text="{Binding FileName}" TextWrapping="Wrap" FontSize="15"/>
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
 
-                                    <DataGridTemplateColumn Header="Description" Width="380">
+                                    <DataGridTemplateColumn Header="Description" Width="330">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <TextBlock Text="{Binding AnnouncementsText}" TextWrapping="Wrap" FontSize="15" />
+                                                <TextBlock Text="{Binding FileDesc}" TextWrapping="Wrap" FontSize="15" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
@@ -304,7 +305,7 @@
                                     <DataGridTemplateColumn Header="Download" Width="120">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <Button Content="Open Report" Click="Button_DownloadFile_Click" Style="{StaticResource MahApps.Styles.Button.Flat}" Background="SkyBlue" Width="100" />
+                                                <Button Content="Download File" Click="Button_DownloadFile_Click" Style="{StaticResource MahApps.Styles.Button.Flat}" Background="SkyBlue" Width="110" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
