@@ -23,6 +23,7 @@ namespace Project_1
 
         string user;
         List<string> teamName = new List<string>();
+        List<int> teamIDs = new List<int>();
         List<string> memberName = new List<string>();
         List<Announcements> announcement = new List<Announcements>();
         List<Deadlines> deadlines = new List<Deadlines>();  
@@ -50,6 +51,7 @@ namespace Project_1
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read()) 
             {
+                teamIDs.Add(reader.GetInt32(0));
                 teamName.Add(reader.GetString(1));
             }
 
@@ -78,16 +80,15 @@ namespace Project_1
         private void SplitButtonClick(object sender, RoutedEventArgs e)
         {
             string currentTeam = filter.Text.ToString();
-            int i = 1;
 
-            foreach (string team in teamName)
+            int i;
+            for (i = 0; i < teamIDs.Count; i++)
             {
-                if (team == currentTeam)
+                if (currentTeam == teamName[i])
                 {
+                    i = teamIDs[i];
                     break;
                 }
-
-                i++;
             }
 
             teamId = i;
