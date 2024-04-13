@@ -48,7 +48,7 @@ namespace Project_1
             conn.Open();
 
             MySqlDataReader reader = cmd.ExecuteReader();
-            if (reader.Read()) 
+            while (reader.Read()) 
             {
                 teamName.Add(reader.GetString(1));
             }
