@@ -25,6 +25,7 @@ namespace Project_1
         List<String> announcementsText = new List<String>();
         DatesCollection original = new DatesCollection();
         List<studentUploadItem> studentUploadItems = new List<studentUploadItem>();
+        int commentUploadID;
 
 
         int teamId;
@@ -135,30 +136,32 @@ namespace Project_1
 
         private void Button_AddComments_Click(object sender, RoutedEventArgs e)
         {
+            Button button = sender as Button;
+            studentUploadItem st = button.DataContext as studentUploadItem;
+            commentUploadID = st.uploadID;
             Commentpopup.IsOpen = true;
         }
 
         private void CommentPopUpClose(object sender, RoutedEventArgs e)
         {
-            Button button = sender as Button;
-            studentUploadItem st = button.DataContext as studentUploadItem;
-
             string comments = CommentTextBox.Text;
 
             string connectionString = "Server=127.0.0.1;Port=3306;Database=SE;Uid=root;Pwd=12345678;";
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                // Assuming your table name is "StudentUploadItems" and you have appropriate column names
                 string updateQuery = "UPDATE studentUpload SET comments = @comments WHERE upload_id = @uploadID";
 
                 MySqlCommand cmd = new MySqlCommand(updateQuery, conn);
                 cmd.Parameters.AddWithValue("@comments", comments);
-                cmd.Parameters.AddWithValue("@uploadID", st.uploadID);
+                cmd.Parameters.AddWithValue("@uploadID", commentUploadID);
 
                 int rowsAffected = cmd.ExecuteNonQuery();
-                this.NavigationService.Refresh();
             }
+
+            commentUploadID = -1;
+            Commentpopup.IsOpen = false;
+            this.NavigationService.Refresh();
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)

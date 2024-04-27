@@ -3,32 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{82EE82D3-10D3-40CD-8B27-620ABFA4C48D}|Project 1.csproj|c:\\users\\alibh\\source\\repos\\ali0887\\fyp-management-system\\studentevaluations.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{82EE82D3-10D3-40CD-8B27-620ABFA4C48D}|Project 1.csproj|solutionrelative:studentevaluations.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{82EE82D3-10D3-40CD-8B27-620ABFA4C48D}|Project 1.csproj|c:\\users\\alibh\\source\\repos\\ali0887\\fyp-management-system\\studentdashboard.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82EE82D3-10D3-40CD-8B27-620ABFA4C48D}|Project 1.csproj|solutionrelative:studentdashboard.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{82EE82D3-10D3-40CD-8B27-620ABFA4C48D}|Project 1.csproj|c:\\users\\alibh\\source\\repos\\ali0887\\fyp-management-system\\supervisorevaluations.xaml||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{82EE82D3-10D3-40CD-8B27-620ABFA4C48D}|Project 1.csproj|solutionrelative:supervisorevaluations.xaml||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{82EE82D3-10D3-40CD-8B27-620ABFA4C48D}|Project 1.csproj|c:\\users\\alibh\\source\\repos\\ali0887\\fyp-management-system\\studentuploads.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{82EE82D3-10D3-40CD-8B27-620ABFA4C48D}|Project 1.csproj|solutionrelative:studentuploads.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{82EE82D3-10D3-40CD-8B27-620ABFA4C48D}|Project 1.csproj|C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\supervisorevaluations.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{82EE82D3-10D3-40CD-8B27-620ABFA4C48D}|Project 1.csproj|solutionrelative:supervisorevaluations.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{82EE82D3-10D3-40CD-8B27-620ABFA4C48D}|Project 1.csproj|C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\supervisorevaluations.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{82EE82D3-10D3-40CD-8B27-620ABFA4C48D}|Project 1.csproj|solutionrelative:supervisorevaluations.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{82EE82D3-10D3-40CD-8B27-620ABFA4C48D}|Project 1.csproj|c:\\users\\alibh\\source\\repos\\ali0887\\fyp-management-system\\supervisorteams.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{82EE82D3-10D3-40CD-8B27-620ABFA4C48D}|Project 1.csproj|solutionrelative:supervisorteams.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{82EE82D3-10D3-40CD-8B27-620ABFA4C48D}|Project 1.csproj|c:\\users\\alibh\\source\\repos\\ali0887\\fyp-management-system\\supervisorteams.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{82EE82D3-10D3-40CD-8B27-620ABFA4C48D}|Project 1.csproj|solutionrelative:supervisorteams.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{82EE82D3-10D3-40CD-8B27-620ABFA4C48D}|Project 1.csproj|c:\\users\\alibh\\source\\repos\\ali0887\\fyp-management-system\\studentdashboard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{82EE82D3-10D3-40CD-8B27-620ABFA4C48D}|Project 1.csproj|solutionrelative:studentdashboard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -47,109 +27,26 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "StudentEvaluations.xaml",
-              "DocumentMoniker": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\StudentEvaluations.xaml",
-              "RelativeDocumentMoniker": "StudentEvaluations.xaml",
-              "ToolTip": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\StudentEvaluations.xaml",
-              "RelativeToolTip": "StudentEvaluations.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-27T15:23:14.804Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "StudentUploads.xaml",
-              "DocumentMoniker": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\StudentUploads.xaml",
-              "RelativeDocumentMoniker": "StudentUploads.xaml",
-              "ToolTip": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\StudentUploads.xaml",
-              "RelativeToolTip": "StudentUploads.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-27T15:22:05.883Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "SupervisorTeams.xaml",
-              "DocumentMoniker": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\SupervisorTeams.xaml",
-              "RelativeDocumentMoniker": "SupervisorTeams.xaml",
-              "ToolTip": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\SupervisorTeams.xaml",
-              "RelativeToolTip": "SupervisorTeams.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-27T14:13:26.822Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SupervisorTeams.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\SupervisorTeams.xaml.cs",
-              "RelativeDocumentMoniker": "SupervisorTeams.xaml.cs",
-              "ToolTip": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\SupervisorTeams.xaml.cs",
-              "RelativeToolTip": "SupervisorTeams.xaml.cs",
-              "ViewState": "AQIAABYCAAAAAAAAAAAAACYCAAAMAAAA",
+              "Title": "StudentDashboard.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\StudentDashboard.xaml.cs",
+              "RelativeDocumentMoniker": "StudentDashboard.xaml.cs",
+              "ToolTip": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\StudentDashboard.xaml.cs",
+              "RelativeToolTip": "StudentDashboard.xaml.cs",
+              "ViewState": "AQIAAJAAAAAAAAAAAAAAAKcAAABtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-27T14:04:56.341Z",
+              "WhenOpened": "2024-04-27T16:31:47.84Z",
               "EditorCaption": ""
             },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SupervisorEvaluations.xaml",
-              "DocumentMoniker": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\SupervisorEvaluations.xaml",
-              "RelativeDocumentMoniker": "SupervisorEvaluations.xaml",
-              "ToolTip": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\SupervisorEvaluations.xaml",
-              "RelativeToolTip": "SupervisorEvaluations.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-27T06:48:24.02Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SupervisorEvaluations.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\SupervisorEvaluations.xaml.cs",
-              "RelativeDocumentMoniker": "SupervisorEvaluations.xaml.cs",
-              "ToolTip": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\SupervisorEvaluations.xaml.cs",
-              "RelativeToolTip": "SupervisorEvaluations.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAJoAAABHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-27T06:48:44.22Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "609a9e63-f624-45e1-94f4-f58ba9c945d0",
-        "Display": 0,
-        "X": 0,
-        "Y": 65,
-        "Width": 1816,
-        "Height": 946,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "SupervisorEvaluations.xaml",
-              "DocumentMoniker": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\SupervisorEvaluations.xaml",
-              "RelativeDocumentMoniker": "SupervisorEvaluations.xaml",
-              "ToolTip": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\SupervisorEvaluations.xaml",
-              "RelativeToolTip": "SupervisorEvaluations.xaml",
-              "ViewState": "AQIAAFwAAAAAAAAAAAAhwHoAAAA9AAAA",
+              "Title": "StudentDashboard.xaml",
+              "DocumentMoniker": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\StudentDashboard.xaml",
+              "RelativeDocumentMoniker": "StudentDashboard.xaml",
+              "ToolTip": "C:\\Users\\alibh\\source\\repos\\ali0887\\FYP-Management-System\\StudentDashboard.xaml",
+              "RelativeToolTip": "StudentDashboard.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-27T06:48:59.212Z",
+              "WhenOpened": "2024-04-27T16:31:43.65Z",
               "EditorCaption": ""
             }
           ]

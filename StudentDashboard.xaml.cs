@@ -159,13 +159,14 @@ namespace Project_1
                 
                 if (count > 3)
                 {
-                    mainBorderDeadlines.Height = 174;
-                    mainPanelDeadlines.Height = 174;
+                    mainBorderDeadlines.Height = 250;
+                    mainPanelDeadlines.Height = 250;
                 }
 
                 foreach (var deadline in deadlines)
                 {
-                    if (deadline.deadlineDate <= oneWeekFromToday)
+                    Date currentDate = new Date(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day);
+                    if (deadline.deadlineDate <= oneWeekFromToday && deadline.deadlineDate >= currentDate)
                     {
                         TextBlock addDeadline = new TextBlock();
                         DateOnly dateOnly = new DateOnly(deadline.deadlineDate.Year, deadline.deadlineDate.Month, deadline.deadlineDate.Day);
