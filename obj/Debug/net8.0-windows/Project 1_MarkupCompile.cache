@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\alibh\Source\Repos\ali0887\FYP-Management-System\App.xaml
-182052784980
+161637151639
 4-11988527
-20-74451231
+18-1647480469
 274-66735607
-AdminAnnouncements.xaml;AdminDashboard.xaml;AdminEvaluations.xaml;AdminLibrary.xaml;AdminLogin.xaml;AdminRegistration.xaml;MainWindow.xaml;StudentAnnouncements.xaml;StudentDashboard.xaml;StudentEvaluations.xaml;StudentLibrary.xaml;StudentUploads.xaml;SupervisorDashboard.xaml;SupervisorEvaluations.xaml;SupervisorLibrary.xaml;SupervisorRegistration.xaml;SupervisorTeams.xaml;Templates.xaml;
+AdminDashboard.xaml;AdminLibrary.xaml;AdminLogin.xaml;AdminRegistration.xaml;MainWindow.xaml;StudentAnnouncements.xaml;StudentDashboard.xaml;StudentEvaluations.xaml;StudentLibrary.xaml;StudentUploads.xaml;SupervisorDashboard.xaml;SupervisorEvaluations.xaml;SupervisorLibrary.xaml;SupervisorRegistration.xaml;SupervisorTeams.xaml;Templates.xaml;
 
 True
 
