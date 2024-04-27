@@ -258,8 +258,8 @@ namespace Project_1
 
             reader.Close();
 
-            string query = "INSERT INTO studentUpload (upload_id, team_id, fileName, filePath, fileDescription, fileDateTime, isGradable) " +
-                           "VALUES (@uploadid, @teamid, @filename, @filepath, @filedesc, @filedate, @isGrade)";
+            string query = "INSERT INTO studentUpload (upload_id, team_id, fileName, filePath, fileDescription, fileDateTime, isGradable, weightage, totalMarks, obtainedMarks, comments) " +
+                           "VALUES (@uploadid, @teamid, @filename, @filepath, @filedesc, @filedate, @isGrade, 0, 0, 0, '')";
 
             cmd = new MySqlCommand(query, conn);
 
@@ -284,10 +284,16 @@ namespace Project_1
     public class studentUploadItem
     {
         public int uploadID {  get; set; }
+        public int teamID { get; set; }
         public string fileName { get; set; }
         public string filePath { get; set; }
         public string fileDesc { get; set; }
         public string fileDate { get; set; }
         public string gradable {  get; set; }
+        public float weightage { get; set; }
+        public float totalMarks { get; set; }
+        public float obtainedMarks { get; set; }
+        public string comments { get; set; }
+        public bool isGradable { get; set; }
     }
 }
