@@ -61,7 +61,7 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
 
-                <TextBlock Text="Supervisor Teams" Background="Transparent" Margin="37, 30, 0, 0" FontSize="26" FontFamily="Fonts/#Roboto Light" Width="420"/>
+                <TextBlock Text="Supervisor Evaluations" Background="Transparent" Margin="37, 30, 0, 0" FontSize="26" FontFamily="Fonts/#Roboto Light" Width="420"/>
 
                 <!-- Logout Button -->
                 <Button Content="Logout" Click="Button_Click_Out"  HorizontalAlignment="Left" Margin="730,26,0,0" VerticalAlignment="Top" Width="122" Height="40" Style="{StaticResource MahApps.Styles.Button.Flat}"/>

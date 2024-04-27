@@ -2,6 +2,33 @@ create database SE;
 -- drop database SE;
 use SE;
 
+
+create table supervisorUpload (
+	upload_id INT PRIMARY KEY,
+    team_id INT,
+    fileName VARCHAR(200),
+    filePath VARCHAR(300),
+    fileDescription VARCHAR(500)
+);
+
+create table studentUpload (
+	upload_id INT PRIMARY KEY,
+    team_id INT,
+    fileName VARCHAR(200),
+    filePath VARCHAR(200),
+    fileDescription VARCHAR(500),
+    fileDateTime datetime,
+    isGradable bool,
+    weightage float,
+    totalMarks float,
+    obtainedMarks float,
+    comments VARCHAR(500)
+);
+
+
+INSERT INTO studentUpload VALUES (0, 0, null, null, null, null, null, null, null, null, null);
+INSERT INTO supervisorUpload VALUES (0,0,'','','');
+
 create table Teams (
 	team_id INT PRIMARY KEY,
 	roll_number_1  varchar(10),
@@ -23,43 +50,21 @@ create table announcements (
 	viewewd bool
 );
 
-select * from announcements;
-
 INSERT INTO announcements VALUES (0, 0,'','','',0);
+
+drop table deadlines;
 
 create table deadlines (
 	team_id INT,
     deadline_id INT PRIMARY KEY,
+    deadline_text VARCHAR(200),
     deadline_date DATE,
     deadline_met bool
 );
 
-INSERT INTO deadlines VALUES (0, 0,NULL,0);
-
-select * from deadlines;
-
+INSERT INTO deadlines VALUES (0, 0,NULL,NULL,0);
 INSERT INTO TEAMS VALUES (0, '','','','','',0,'',1);
--- DROP TABLE Teams;
 
--- SELECT * FROM TEAMS;
--- SELECT * FROM Teams WHERE approved != 1;
-
-SELECT * FROM Teams WHERE team_id = 1;
-
-INSERT INTO Teams (team_id, roll_number_1, roll_number_2, roll_number_3, supervisor_id, team_name, fyp_year, mission_statement, approved)
-VALUES 
-(1,'i21-1234', 'i21-5678', 'i21-9012', 's-9342', 'TechTitans', 2025, 'Creating a sustainable energy solution for rural areas.', true),
-(2,'i21-2468', 'i21-1357', 'i21-9753', 's-7685', 'ByteBuilders', 2025, 'Developing a machine learning algorithm for early disease detection.', false),
-(3,'i21-9876', 'i21-5432', 'i21-1098', 's-2387', 'InnovateX', 2025, 'Designing a mobile application to promote mental health awareness.', true),
-(4,'i21-3698', 'i21-7854', 'i21-2134', 's-5902', 'CodeCrafters', 2025, 'Building an IoT-based smart home system for energy efficiency.', false),
-(5,'i21-6543', 'i21-8901', 'i21-4321', 's-4092', 'CyberSquad', 2025, 'Creating a platform for online tutoring and skill development.', true),
-(6,'i21-5678', 'i21-1234', 'i21-9012', 's-6812', 'DataDynamos', 2025, 'Developing an e-commerce platform for local artisans.', false),
-(7,'i21-5432', 'i21-9876', 'i21-1098', 's-1258', 'TechTinkerers', 2025, 'Designing a low-cost water purification system for rural communities.', true),
-(8,'i21-7854', 'i21-3698', 'i21-2134', 's-3476', 'LogicLegends', 2025, 'Creating a mobile application for waste management and recycling.', false),
-(9,'i21-8901', 'i21-6543', 'i21-4321', 's-8023', 'InventiveMinds', 2025, 'Developing a virtual reality-based educational platform.', true),
-(10,'i21-1234', 'i21-5678', 'i21-9012', 's-2159', 'DataDreamers', 2025, 'Designing a community-driven urban gardening system.', false);
-
-SELECT Fname, MName, Lname from USER WHERE Username = 'i21-1234';
  
 create table repository(
 	repos_id int primary key,
@@ -72,19 +77,6 @@ create table repository(
     languages varchar(20),
     short_title varchar(20)
 );
-
-INSERT INTO repository (repos_id, roll_number_1, roll_number_2, roll_number_3, supervisor_id, mission_statement, report_link, languages, short_title)
-VALUES 
-(1,'i21-1234', 'i21-5678', 'i21-9012', 's-9342', 'Creating a sustainable energy solution for rural areas.', 'http://example.com/report1', 'Python', 'EnergySol'),
-(2,'i21-2468', 'i21-1357', 'i21-9753', 's-7685', 'Developing a machine learning algorithm for early disease detection.', 'http://example.com/report2', 'Python, R', 'DiseaseML'),
-(3,'i21-9876', 'i21-5432', 'i21-1098', 's-2387', 'Designing a mobile application to promote mental health awareness.', 'http://example.com/report3', 'Java', 'MentalHealth'),
-(4,'i21-3698', 'i21-7854', 'i21-2134', 's-5902', 'Building an IoT-based smart home system for energy efficiency.', 'http://example.com/report4', 'C++, JavaScript', 'SmartHome'),
-(5,'i21-6543', 'i21-8901', 'i21-4321', 's-4092', 'Creating a platform for online tutoring and skill development.', 'http://example.com/report5', 'Java, HTML, CSS', 'TutorPlat'),
-(6,'i21-5678', 'i21-1234', 'i21-9012', 's-6812', 'Developing an e-commerce platform for local artisans.', 'http://example.com/report6', 'Python, JavaScript', 'ArtisanEcom'),
-(7,'i21-5432', 'i21-9876', 'i21-1098', 's-1258', 'Designing a low-cost water purification system for rural communities.', 'http://example.com/report7', 'C, Arduino', 'WaterPurify'),
-(8,'i21-7854', 'i21-3698', 'i21-2134', 's-3476', 'Creating a mobile application for waste management and recycling.', 'http://example.com/report8', 'Java, Kotlin', 'RecycleApp'),
-(9,'i21-8901', 'i21-6543', 'i21-4321', 's-8023', 'Developing a virtual reality-based educational platform.', 'http://example.com/report9', 'C#, Unity', 'VR-Edu'),
-(10,'i21-1234', 'i21-5678', 'i21-9012', 's-2159', 'Designing a community-driven urban gardening system.', 'http://example.com/report10', 'Python, JavaScript', 'UrbanGarden');
 
 CREATE TABLE User (
     Username VARCHAR(10) UNIQUE NOT NULL,
@@ -103,7 +95,6 @@ CREATE TABLE User (
     PRIMARY KEY (Username)
 );
 
-
 INSERT INTO User (Username, FName, MName, LName, PhoneNum, Type, Gender, Email, Address, CGPA, Degree, DOB)
 VALUES
 ('i21-1234', 'John', 'M', 'Doe', '123-456-7890', 'S', 'M', 'john.doe@example.com', '123 Main St, Anytown, USA', 3.7, 'Bachelor of Science', '1995-08-15'),
@@ -117,8 +108,6 @@ VALUES
 ('a-1234', 'Anna', 'F', 'Anderson', '444-555-6666', 'A', 'F', 'anna.anderson@example.com', '123 Lemon St, Anytown, USA', NULL, NULL, '1985-07-20'),
 ('a-5678', 'Jacob', 'M', 'Smith', '777-666-5555', 'A', 'M', 'jacob.smith@example.com', '456 Orange Ave, Somewhere, USA', NULL, NULL, '1990-02-15');
 
-
-
 CREATE TABLE Login (
     Username VARCHAR(20) UNIQUE NOT NULL,
     Password VARCHAR(60) NOT NULL,
@@ -126,6 +115,7 @@ CREATE TABLE Login (
     FOREIGN KEY (Username) REFERENCES User (Username),
     PRIMARY KEY (Username) 
 );
+
 INSERT INTO Login (Username, Password) VALUES
 ('i21-1234', '1234'),
 ('i21-5678', '1234'),
@@ -138,17 +128,10 @@ INSERT INTO Login (Username, Password) VALUES
 ('a-1234', '1234'),
 ('a-5678', '1234');
 
+
 CREATE TABLE FYPRepository (
 	Title VARCHAR(200),
     Description VARCHAR(2000),
     Link VARCHAR(200),
     Tools VARCHAR(300)
 );
-
-DROP TABLE FYPRepository;
-
-select * from FYPRepository;
-
-select * from login
-SELECT DATABASE();
-SELECT USER();
