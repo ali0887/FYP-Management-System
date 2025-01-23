@@ -15,7 +15,7 @@ namespace Project_1
         public App()
         {
 
-            SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NBaF5cXmZCe0x3RHxbf1x0ZFFMYFtbRHBPIiBoS35RckVnWH5feXFRR2lZVEZ+");
+            SyncfusionLicenseProvider.RegisterLicense("Your SyncFusion Key goes here");
 
         }
 
