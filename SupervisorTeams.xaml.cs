@@ -315,7 +315,7 @@ namespace Project_1
         {
             UploadingMessage.Visibility = Visibility.Visible;
 
-            string blobStorageContainerString = "DefaultEndpointsProtocol=https;AccountName=seprojectstorage;AccountKey=km44lJwL+Vsxy4QcYbdu7kVq+xELZcVFJByA9vqcvdqkvP/+fgmTb9fOwPpebWrFkK64KOXD2fqa+AStD9Ep6w==;EndpointSuffix=core.windows.net";
+            string blobStorageContainerString = "DefaultEndpointsProtocol=https;AccountName=;AccountKey=;EndpointSuffix=core.windows.net";
             string blobStorageContainerName = "supervisorupload";
             BlobContainerClient container = new BlobContainerClient(blobStorageContainerString, blobStorageContainerName);
 
@@ -382,7 +382,7 @@ namespace Project_1
             if (report != null && !string.IsNullOrEmpty(report.FilePath))
             {
                 string destinationFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads", Path.GetFileName(report.FilePath));
-                string blobStorageContainerString = "DefaultEndpointsProtocol=https;AccountName=seprojectstorage;AccountKey=km44lJwL+Vsxy4QcYbdu7kVq+xELZcVFJByA9vqcvdqkvP/+fgmTb9fOwPpebWrFkK64KOXD2fqa+AStD9Ep6w==;EndpointSuffix=core.windows.net";
+                string blobStorageContainerString = "DefaultEndpointsProtocol=https;AccountName=;AccountKey=;EndpointSuffix=core.windows.net";
                 string blobStorageContainerName = "supervisorupload";
                 BlobContainerClient container = new BlobContainerClient(blobStorageContainerString, blobStorageContainerName);
                 BlobClient blob = container.GetBlobClient(report.FilePath);
